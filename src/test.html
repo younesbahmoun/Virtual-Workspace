@@ -9,22 +9,47 @@
 </head>
 
 <body>
-    <div class="parent">
-        <aside class="aside">
+    <div class="container">
+        <!-- <aside class="aside" style="background-color: red;">
             <h1>Staff Members (Unassigned)</h1>
 
             <div class="card-person">
                 <img src="https://i.pravatar.cc/150?img=12" alt="Profile picture of Younes">
-                <p>Younes</p>
-                <p>IT</p>
+                <div class="card-person-info">
+                    <p>Younes</p>
+                    <p>IT Technician</p>
+                </div>
                 <button>Edit</button>
             </div>
-
             <button>Add New Worker</button>
+        </aside> -->
+        <!-- <button onclick="editEmployee(1)">Edit</button> -->
+
+
+
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Personnel non assigné</h2>
+                <span class="badge" id="unassignedCount">2</span>
+            </div>
+            <button class="btn-add" onclick="openAddModal()">Ajouter un employe</button>
+            <div class="unassigned-list" id="unassignedList">
+                <p class="empty-message">Tous assignes</p>
+                <!-- <div class="employee-card">
+                    <div class="employee-card-content">
+                        <img src="https://avatar.iran.liara.run/public/5" class="employee-avatar"  alt="Profile picture of Younes">
+                        <div class="employee-info">
+                            <h3>yyyuy</h3>
+                            <p>Technicien IT</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
         </aside>
+
+
         <div class="rooms">
             <div class="one">Conference Room</div>
-            <div class="two">222222</div>
             <div class="three">3333333</div>
             <div class="four">44444444</div>
             <div class="five">
@@ -33,6 +58,84 @@
             </div>
             <div class="six">6666666</div>
             <div class="seven">777777777</div>
+        </div>
+    </div>
+    <div class="modal" id="addModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nouvel employé</h3>
+                <button class="btn-close" onclick="closeAddModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nom complet *</label>
+                    <input type="text" id="empName" required>
+                </div>
+                <div class="form-group">
+                    <label>Rôle *</label>
+                    <select id="empRole">
+                        <option>Manager</option>
+                        <option>Réceptionniste</option>
+                        <option>Technicien IT</option>
+                        <option>Agent de sécurité</option>
+                        <option>Nettoyage</option>
+                        <option>Employé</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Photo (URL)</label>
+                    <input type="url" id="empPhoto" oninput="previewPhoto()">
+                    <div class="photo-preview" id="photoPreview"></div>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="empEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="tel" id="empPhone">
+                </div>
+                <div class="form-group">
+                    <div class="experiences-header">
+                        <label>Expériences</label>
+                        <button type="button" class="btn-add-exp" onclick="addExperienceField()">+ Ajouter</button>
+                    </div>
+                    <div id="experiencesContainer">
+                        <div class="experience-item">
+                            <input type="text" placeholder="Entreprise" class="exp-company">
+                            <input type="text" placeholder="Poste" class="exp-position">
+                            <input type="text" placeholder="Durée" class="exp-duration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeAddModal()">Annuler</button>
+                <button class="btn-submit" onclick="addEmployee()">Ajouter</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Profil</h3>
+                <button class="btn-close" onclick="closeProfileModal()">&times;</button>
+            </div>
+            <p class="empty-message">Tous assignés</p>
+            <div class="modal-body" id="profileContent"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="selectorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sélectionner</h3>
+                <button class="btn-close" onclick="closeSelectorModal()">&times;</button>
+            </div>
+            <!-- <p class="empty-message">Tous assignés</p> -->
+             <p class="empty-message">Tous assignés</p>
+            <div class="modal-body" id="selectorList"></div>
         </div>
     </div>
 </body>
