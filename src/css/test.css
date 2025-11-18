@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.parent {
+  display: flex;
+}
+
+.aside {
+  width: 25vw;
+  height: 99vh;
+  background-color: blue;
+}
+
+.rooms {
+  width: 75vw;
+  height: 43vw;
+  background-image: url("../../roms.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: red;
+  display: grid;
+  /* grid-template-columns: 3fr 1fr 2fr 2fr; */
+  /* grid-template-columns: 38.7% repeat(3, 1fr); */
+  grid-template-columns: 38.7% 1.4fr 2fr 2fr;
+  /* grid-template-columns: 39.1% 16%; */
+  /* grid-template-columns: 38.7% 17% 22.45% 22.45%; */
+  /* grid-template-rows: 34.5% 65.5%; */
+  grid-template-rows: 34.5% 1fr 1fr;
+}
+
+.one {
+  background-color: red;
+  opacity: 0.5;
+  margin: 2.9%;
+}
+.three {
+  background-color: blue;
+  opacity: 0.5;
+  /* grid-column: ; */
+  grid-column: 3 / 4;
+  margin: 5% 2% 1%;
+}
+.four {
+  background-color: green;
+  opacity: 0.5;
+  grid-column: 4 / 5;
+  /* margin: 2.9%; */
+  margin: 5% 1% 1%;
+}
+.five {
+  background-color: aqua;
+  opacity: 0.5;
+  grid-area: 2 / 1 / 4 / 2;
+  margin: 0 2.9% 2.9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.six {
+  background-color: yellow;
+  opacity: 0.5;
+  grid-area: 3 / 3 / 4 / 4;
+}
+.seven {
+  background-color: red;
+  opacity: 0.5;
+  grid-area: 3 / 4 / 4 / 5;
+}

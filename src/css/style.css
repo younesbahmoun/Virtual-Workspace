@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* width: 100%; */
+    /* height: 100vh;
+    background-color: #eee;
+    background-image: url("../../roms.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+
+/* grid-template-columns: 20% 1fr; */
+/* grid-template-rows: 44vw; */
+
+
+
+
+.parent {
+    /* width: 1536px; */
+    /* width: 1286px; */
+    display: grid;
+    /* grid-template-columns:  20vw 73vw; */
+    grid-template-columns:  20% 1fr;
+    /* grid-template-columns:  20% 73%; */
+    grid-template-rows: 41.66vw;
+    /* justify-content: space-between; */
+    /* grid-template-rows: 640px; */
+    /* grid-template-rows: 864px; */
+    /* grid-template-rows: 729px; */
+    column-gap: calc(100vw - 92.721vw);
+}
+
+.aside {
+    background-color: rgb(155, 117, 117);
+}
+
+
+.rooms {
+    background-color: red;
+    background-image: url("../../roms.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;  
+    /* padding: 40px; */
+}
