@@ -9,52 +9,192 @@
 </head>
 
 <body>
-    <div class="parent">
-        <aside class="aside">
-            <h1>Staff Members (Unassigned)</h1>
+    <div class="container">
 
-            <div class="card-person">
-                <img src="https://i.pravatar.cc/150?img=12" alt="Profile picture of Younes">
-                <p>Younes</p>
-                <p>IT</p>
-                <button>Edit</button>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Personnel non assigne</h2>
+                <span class="badge" id="unassignedCount">2</span>
             </div>
-
-            <button>Add New Worker</button>
+            <button class="btn-add" onclick="openAddModal()">Ajouter un employe</button>
+            <div class="unassigned-list" id="unassignedList">
+                <p class="empty-message">Tous assignes</p>
+                <!-- <div class="employee-card">
+                    <div class="employee-card-content">
+                        <img src="https://avatar.iran.liara.run/public/5" class="employee-avatar"  alt="Profile picture of Younes">
+                        <div class="employee-info">
+                            <h3>yyyuy</h3>
+                            <p>Technicien IT</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
         </aside>
 
         <main class="rooms">
+
+
+            <div class="zone zone-conference" id="zone-conference" onclick="openZoneSelector('conference')">
+                <div class="zone-header">
+                    <h3>Salle de conférence</h3>
+                    <span class="capacity-badge" id="badge-conference">0/8</span>
+                </div>
+                <div class="zone-employees" id="employees-conference">
+
+                    <!-- <div class="zone-employee">
+                        <div class="zone-employee-avatar">p</div>
+                        <div class="zone-employee-info">
+                            <h4>pooo</h4>
+                        </div><button class="btn-remove"
+                            onclick="event.stopPropagation(); removeFromZone(1763481690850)">×</button>
+                    </div> -->
+
+                </div>
+                <button class="btn-assign"
+                    onclick="event.stopPropagation(); openZoneSelector('conference')">+Assigner</button>
+            </div>
+
+            <div class="zone zone-reception empty-required" id="zone-reception" onclick="openZoneSelector('reception')">
+                <div class="zone-header">
+                    <h3>Réception</h3>
+                    <span class="capacity-badge" id="badge-reception">0/2</span>
+                </div>
+                <div class="zone-employees" id="employees-reception"></div>
+                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('reception')">+
+                    Assigner</button>
+            </div>
+
+            <div class="zone zone-server empty-required" id="zone-server" onclick="openZoneSelector('server')">
+                <div class="zone-header">
+                    <h3>Salle serveurs</h3>
+                    <span class="capacity-badge" id="badge-server">0/3</span>
+                </div>
+                <div class="zone-employees" id="employees-server"></div>
+                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('server')">+
+                    Assigner</button>
+            </div>
+
+            <div class="zone zone-security empty-required" id="zone-security" onclick="openZoneSelector('security')">
+                <div class="zone-header">
+                    <h3>Salle sécurité</h3>
+                    <span class="capacity-badge" id="badge-security">0/2</span>
+                </div>
+                <div class="zone-employees" id="employees-security"></div>
+                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('security')">+
+                    Assigner</button>
+            </div>
+
+            <div class="zone zone-staff" id="zone-staff" onclick="openZoneSelector('staff')">
+                <div class="zone-header">
+                    <h3>Salle du personnel</h3>
+                    <span class="capacity-badge" id="badge-staff">0/10</span>
+                </div>
+                <div class="zone-employees" id="employees-staff"></div>
+                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('staff')">+
+                    Assigner</button>
+            </div>
+
+            <div class="zone zone-archives empty-required" id="zone-archives" onclick="openZoneSelector('archives')">
+                <div class="zone-header">
+                    <h3>Salle d'archives</h3>
+                    <span class="capacity-badge" id="badge-archives">0/2</span>
+                </div>
+                <div class="zone-employees" id="employees-archives"></div>
+                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('archives')">+
+                    Assigner</button>
+            </div>
+
+
+
             <!-- <div class="one">Conference Room</div>
-            <div class="two">222222</div>
             <div class="three">3333333</div>
             <div class="four">44444444</div>
-            <div class="five">555555555</div>
-            <div class="six">6666666</div> -->
-            <!-- <div class="seven">777777777</div> -->
+            <div class="five">
+                <p>test</p>
+                <p>test</p>
+            </div>
+            <div class="six">6666666</div>
+            <div class="seven">777777777</div> -->
         </main>
     </div>
-
-    <!-- <div class="parent">
-        <div class="aside">
-            <h1>Staff Members (Unassigned)</h1>
-            <div class="card-person">
-                <img src="https://i.pravatar.cc/150?img=12" alt="">
-                <p>Younes</p>
-                <p>it</p>
-                <p>Edit</p>
+    <div class="modal" id="addModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nouvel employé</h3>
+                <button class="btn-close" onclick="closeAddModal()">&times;</button>
             </div>
-            <button>Add New Worker</button>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nom complet *</label>
+                    <input type="text" id="empName" required>
+                </div>
+                <div class="form-group">
+                    <label>Rôle *</label>
+                    <select id="empRole">
+                        <option>Manager</option>
+                        <option>Réceptionniste</option>
+                        <option>Technicien IT</option>
+                        <option>Agent de sécurité</option>
+                        <option>Nettoyage</option>
+                        <option>Employé</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Photo (URL)</label>
+                    <input type="url" id="empPhoto" oninput="previewPhoto()">
+                    <div class="photo-preview" id="photoPreview"></div>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="empEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="tel" id="empPhone">
+                </div>
+                <div class="form-group">
+                    <div class="experiences-header">
+                        <label>Expériences</label>
+                        <button type="button" class="btn-add-exp" onclick="addExperienceField()">+ Ajouter</button>
+                    </div>
+                    <div id="experiencesContainer">
+                        <div class="experience-item">
+                            <input type="text" placeholder="Entreprise" class="exp-company">
+                            <input type="text" placeholder="Poste" class="exp-position">
+                            <input type="text" placeholder="Durée" class="exp-duration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeAddModal()">Annuler</button>
+                <button class="btn-submit" onclick="addEmployee()">Ajouter</button>
+            </div>
         </div>
-        <div class="rooms">
+    </div>
+
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Profil</h3>
+                <button class="btn-close" onclick="closeProfileModal()">&times;</button>
+            </div>
+            <p class="empty-message">Tous assignés</p>
+            <div class="modal-body" id="profileContent"></div>
         </div>
-    </div> -->
-    <!-- <div class="one">Conference Room</div>
-    <div class="two"></div>
-    <div class="three"></div>
-    <div class="four"></div>
-    <div class="five"></div>
-    <div class="six"></div>
-    <div class="seven"></div> -->
+    </div>
+
+    <div class="modal" id="selectorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sélectionner</h3>
+                <button class="btn-close" onclick="closeSelectorModal()">&times;</button>
+            </div>
+            <!-- <p class="empty-message">Tous assignés</p> -->
+            <p class="empty-message">Tous assignés</p>
+            <div class="modal-body" id="selectorList"></div>
+        </div>
+    </div>
     <script src="js/main.js"></script>
 </body>
 
