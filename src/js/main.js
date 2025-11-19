@@ -64,23 +64,9 @@ document.getElementById("btn-add-exp").addEventListener("click", () => {
   // document.getElementById("experiencesContainer").appendChild(document.querySelector(".experience-item").cloneNode(true));
 });
 
-// function exp () {
-//   const experienceItems = document.querySelectorAll(".experience-item");
-//   for (let i = 0; i < experienceItems.length; i++) {
-//     // console.log(i);
-//     const exp = {
-//       title: document.querySelector(".exp-company").value,
-//     };
-//     experienceEmploye.push(exp);
-//   }
-//   return experienceEmploye;
-// }
-
 const employees = {
   //   { id: uid(), name: 'Sara Reception', role: 'Receptionist', photo: 'https://i.pravatar.cc/150?img=5', email: 'sara@example.com', phone: '+212600333444', exp: [], location: null },
   //   { id: uid(), name: 'Hamid Tech', role: 'Technician', photo: 'https://i.pravatar.cc/150?img=10', email: 'hamid@example.com', phone: '+212600555666', exp: [{ title: 'Sysadmin', company: 'ITCorp', years: '2y' }], location: null },
-  //   { id: uid(), name: 'Rachid Clean', role: 'Cleaning', photo: 'https://i.pravatar.cc/150?img=8', email: 'rachid@example.com', phone: '+212600777888', exp: [], location: null },
-  //   { id: uid(), name: 'Amina Sec', role: 'Security', photo: 'https://i.pravatar.cc/150?img=47', email: 'amina@example.com', phone: '+212600999000', exp: [], location: null },
   nonAssigne: [],
   conference: [
     // {
@@ -107,7 +93,7 @@ const employees = {
   archives: [],
 };
 
-function experiencesEmploye () {
+function experiencesEmploye() {
   const experiencesContainer = document.getElementById("experiences-container");
   if (experiencesContainer.childElementCount === 0) {
     console.log("yes");
@@ -115,38 +101,48 @@ function experiencesEmploye () {
   }
   const experienceItems = document.querySelectorAll(".experience-item");
   const experienceEmploye = [];
-  
+
   for (let i = 0; i < experienceItems.length; i++) {
     const item = experienceItems[i];
-    
+
     // Get inputs from the CURRENT experience item
     const company = item.querySelector(".exp-company").value;
     const position = item.querySelector(".exp-position").value;
     const duration = item.querySelector(".exp-duration").value;
-    
+
     // Only add if at least one field has data
     // if (company || position || duration) {
-      const exp = {
-        title: position,       // "Poste" = position/title
-        company: company,      // "Entreprise" = company
-        years: duration        // "Duree" = years/duration
-      };
-      experienceEmploye.push(exp);
+    const exp = {
+      title: position, // "Poste" = position/title
+      company: company, // "Entreprise" = company
+      years: duration, // "Duree" = years/duration
+    };
+    experienceEmploye.push(exp);
     // }
   }
-  
+
   return experienceEmploye;
 }
 
-function renderUnassigned() {
+function renderUnassigned(employe) {
   const list = document.getElementById("unassigned-list");
-
+  list.innerHTML += `
+    <div class="employee-card">
+      <div class="employee-card-content">
+          <img src="${employe.photo}" class="employee-avatar"  alt="Profile picture of ${employe.name}">
+          <div class="employee-info">
+              <h3>${employe.name}</h3>
+              <p>${employe.role}</p>
+          </div>
+      </div>
+    </div>
+  `;
 }
 
 document.getElementById("add-form").addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(experiencesEmploye());
-  
+
   const employe = {
     id: uid(),
     name: document.getElementById("emp-name").value,
@@ -157,7 +153,8 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
     exp: experiencesEmploye(),
     location: null,
   };
-  employees['nonAssigne'].push(employe);
+  renderUnassigned(employe);
+  employees["nonAssigne"].push(employe);
   // console.log(employees);
   localStorage.setItem("rooms", JSON.stringify(employees));
   closeAddEmployeModal();
