@@ -20,16 +20,16 @@
             <div class="unassigned-list" id="unassigned-list">
                 <p class="empty-message">Tous assignes</p>
                 <!-- cardperson -->
-                <div class="employee-card">
+                <div class="employee-card" data-employe-id="1111" data-department="IT">
                     <div class="employee-card-content">
-                        <img src="https://avatar.iran.liara.run/public/5" class="employee-avatar"  alt="Profile picture of Younes">
+                        <img src="https://i.pravatar.cc/150?img=12" class="employee-avatar"
+                            alt="Profile picture of younes bahmoun">
                         <div class="employee-info">
-                            <h3>yyyuy</h3>
-                            <p>Technicien IT</p>
+                            <h3>younes bahmoun</h3>
+                            <p>it</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </aside>
 
@@ -215,7 +215,47 @@
         </div>
     </div>
 
-    <div class="modal" id="profile-modal">
+    <!-- details -->
+    <div class="modal active" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Profil</h3>
+                <button class="btn-close" onclick="closeProfileModal()">×</button>
+            </div>
+            <div class="modal-body" id="profileContent">
+                <div style="text-align:center;">
+                    <img src="https://i.pravatar.cc/150?img=12" class="profile-avatar">
+                    <div class="profile-name">younes</div>
+                    <div class="profile-role">Technicien IT</div>
+                </div>
+                <div class="info-item">
+                    <h4>Email</h4>
+                    <p>younes@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <h4>Téléphone</h4>
+                    <p>0606060606</p>
+                </div>
+                <div class="info-item">
+                    <h4>Localisation</h4>
+                    <p>Non assigné</p>
+                </div>
+                <div class="experiences-display">
+                    <h4>Expériences</h4>
+                    <div class="exp-item">
+                        <h5>ooo</h5>
+                        <p>ooo</p><small>ooo</small>
+                    </div>
+                    <div class="exp-item">
+                        <h5>ppp</h5>
+                        <p>ppp</p><small>ppp</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal active" id="profile-modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Profil</h3>
@@ -224,7 +264,7 @@
             <p class="empty-message">Tous assignés</p>
             <div class="modal-body" id="profileContent"></div>
         </div>
-    </div>
+    </div> -->
 
     <div class="modal" id="selectorModal">
         <div class="modal-content">

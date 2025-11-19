@@ -124,6 +124,63 @@ function experiencesEmploye() {
   return experienceEmploye;
 }
 
+// function supprimeEmploye (employe) {
+//   console.log(employe.dataset.employeId);
+
+//   employe.remove();
+// }
+
+function showProfile(employe) {
+  const content = document.getElementById("profileContent");
+  content.innerHTML += `
+    <div style="text-align:center;">
+      <img src="${employe.photo}" class="profile-avatar">
+      <div class="profile-name">younes</div>
+      <div class="profile-role">Technicien IT</div>
+    </div>
+    <div class="info-item">
+      <h4>Email</h4>
+      <p>younes@gmail.com</p>
+    </div>
+    <div class="info-item">
+      <h4>Téléphone</h4>
+      <p>0606060606</p>
+    </div>
+    <div class="info-item">
+      <h4>Localisation</h4>
+      <p>Non assigné</p>
+    </div>
+    <div class="experiences-display">
+      <h4>Expériences</h4>
+      <div class="exp-item">
+        <h5>ooo</h5>
+        <p>ooo</p><small>ooo</small>
+      </div>
+      <div class="exp-item">
+        <h5>ppp</h5>
+        <p>ppp</p><small>ppp</small>
+      </div>
+    </div>
+  `;
+}
+// Écouter les clics sur la liste parente
+document
+  .getElementById("unassigned-list")
+  .addEventListener("click", (event) => {
+    console.log(event.currentTarget); // Toujours #unassigned-list (l'écouteur)
+    // console.log(event.target.closest(".employee-card").dataset.employeId); // L'élément spécifique cliqué
+    // event.target.closest(".employee-card").remove();
+    // Trouver la carte employé cliquée
+    // const employeeCard = event.target.closest('.employee-card');
+
+    openAddEmployeModal();
+    supprimeEmploye(event.target.closest(".employee-card"));
+    // if (employeeCard) {
+    //   const employeeId = employeeCard.dataset.employeeId;
+    //   selectEmployee(employeeId);
+    // }
+  });
+
 function renderUnassigned(employe) {
   const list = document.getElementById("unassigned-list");
   list.innerHTML += `
@@ -155,8 +212,8 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
   };
   renderUnassigned(employe);
   employees["nonAssigne"].push(employe);
-  // console.log(employees);
-  localStorage.setItem("rooms", JSON.stringify(employees));
+  console.log(employees);
+  // localStorage.setItem("rooms", JSON.stringify(employees));
   closeAddEmployeModal();
 });
 
@@ -222,3 +279,6 @@ function createEmploye(urlImage) {
   const img = document.createElement("img");
   img.setAttribute("src", `${urlImage}`);
 }
+
+// let dat = "1999-08-15";
+// console.log(Number(dat.split("-")[0]) === 1999);
