@@ -19,7 +19,8 @@
             <button class="btn-add" id="btn-add-employee">Ajouter un employe</button>
             <div class="unassigned-list" id="unassignedList">
                 <p class="empty-message">Tous assignes</p>
-                <!-- <div class="employee-card">
+                <!-- cardperson -->
+                <div class="employee-card">
                     <div class="employee-card-content">
                         <img src="https://avatar.iran.liara.run/public/5" class="employee-avatar"  alt="Profile picture of Younes">
                         <div class="employee-info">
@@ -27,7 +28,8 @@
                             <p>Technicien IT</p>
                         </div>
                     </div>
-                </div> -->
+                </div>
+
             </div>
         </aside>
 
@@ -143,21 +145,34 @@
 
                     <div class="form-group">
                         <label>Role *</label>
-                        <select id="emp-role" name="role" required>
-                            <option>Manager</option>
+                        <!-- <select id="emp-role" name="role" required>
+                            <option data-role="manager">Manager</option>
                             <option>Receptionniste</option>
                             <option>Technicien IT</option>
                             <option>Agent de securite</option>
                             <option>Nettoyage</option>
                             <option>Employe</option>
-                            <option>Other</option>
+                            <option v>Other</option>
+                        </select> -->
+                        <select id="emp-role" name="role" required>
+                            <option value="manager">Manager</option>
+                            <option value="reception">Receptionniste</option>
+                            <!-- servers -->
+                            <option value="it">Technicien IT</option>
+                            <option value="security">Agent de securite</option>
+                            <option value="cleaning">Nettoyage</option>
+                            <option value="employee">Employe</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Photo (URL)</label>
-                        <input type="url" id="emp-photo" name="photo" oninput="previewPhoto()">
-                        <div class="photo-preview" id="photoPreview"></div>
+                        <!-- <input type="url" id="emp-photo" name="photo" oninput="previewPhoto()"> -->
+                        <input type="url" id="emp-photo" name="photo">
+                        <div class="photo-preview" id="photo-preview">
+                            <img src="https://avatar.iran.liara.run/public/45" alt="">
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -168,6 +183,25 @@
                     <div class="form-group">
                         <label>Téléphone</label>
                         <input type="tel" id="emp-phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="experiences-header">
+                            <label>Expériences</label>
+                            <button type="button" class="btn-add-exp" id="btn-add-exp">Ajouter</button>
+                        </div>
+                        <div id="experiences-container">
+                            <!-- <div class="experience-item">
+                                <input type="text" placeholder="Entreprise" class="exp-company">
+                                <input type="text" placeholder="Poste" class="exp-position">
+                                <input type="text" placeholder="Duree" class="exp-duration">
+                            </div>
+                            <div class="experience-item">
+                                <input type="text" placeholder="Entreprise" class="exp-company">
+                                <input type="text" placeholder="Poste" class="exp-position">
+                                <input type="text" placeholder="Duree" class="exp-duration">
+                            </div> -->
+                        </div>
                     </div>
 
                 </div>
