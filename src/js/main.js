@@ -51,7 +51,7 @@ function closeAddModal() {
 }
 
 function addExperienceField() {
-  const container = document.getElementById("experiencesContainer");
+  const container = document.getElementById("experiences-container");
   const expDiv = document.createElement("div");
   expDiv.className = "experience-item";
   expDiv.innerHTML =
@@ -138,6 +138,11 @@ function experiencesEmploye () {
   return experienceEmploye;
 }
 
+function renderUnassigned() {
+  const list = document.getElementById("unassigned-list");
+
+}
+
 document.getElementById("add-form").addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(experiencesEmploye());
@@ -153,13 +158,8 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
     location: null,
   };
   employees['nonAssigne'].push(employe);
-  console.log(employees);
-  
-  // console.log(document.getElementById("emp-name").value.trim());
-  // console.log(document.getElementById("emp-photo").value);
-  // console.log(document.getElementById("emp-email").value);
-  // console.log(document.getElementById("emp-phone").value);
-  // console.log(document.getElementById("emp-role").value);
+  // console.log(employees);
+  localStorage.setItem("rooms", JSON.stringify(employees));
   closeAddEmployeModal();
 });
 
