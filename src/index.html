@@ -59,17 +59,17 @@
                     <img class="imgg" src="https://i.pravatar.cc/150?img=10" alt=""> -->
 
                 </div>
-                <button class="btn-assign"
-                    onclick="event.stopPropagation(); openZoneSelector('conference')">+Assigner</button>
+                <button class="btn-assign" data-rooms="conference"
+                    onclick="event.stopPropagation(); openZoneSelector('conference')">Assigner</button>
             </div>
 
             <div class="zone zone-reception empty-required" id="zone-reception" onclick="openZoneSelector('reception')">
                 <div class="zone-header">
-                    <h3>Réception</h3>
+                    <h3>Reception</h3>
                     <span class="capacity-badge" id="badge-reception">0/2</span>
                 </div>
                 <div class="zone-employees" id="employees-reception"></div>
-                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('reception')">+
+                <button class="btn-assign" data-rooms="reception" onclick="event.stopPropagation(); openZoneSelector('reception')">
                     Assigner</button>
             </div>
 
@@ -79,17 +79,17 @@
                     <span class="capacity-badge" id="badge-server">0/3</span>
                 </div>
                 <div class="zone-employees" id="employees-server"></div>
-                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('server')">+
+                <button class="btn-assign" data-rooms="server" onclick="event.stopPropagation(); openZoneSelector('server')">
                     Assigner</button>
             </div>
 
             <div class="zone zone-security empty-required" id="zone-security" onclick="openZoneSelector('security')">
                 <div class="zone-header">
-                    <h3>Salle sécurité</h3>
+                    <h3>Salle securite</h3>
                     <span class="capacity-badge" id="badge-security">0/2</span>
                 </div>
                 <div class="zone-employees" id="employees-security"></div>
-                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('security')">+
+                <button class="btn-assign" data-rooms="security" onclick="event.stopPropagation(); openZoneSelector('security')">
                     Assigner</button>
             </div>
 
@@ -99,17 +99,17 @@
                     <span class="capacity-badge" id="badge-staff">0/10</span>
                 </div>
                 <div class="zone-employees" id="employees-staff"></div>
-                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('staff')">+
+                <button class="btn-assign" data-rooms="staff" onclick="event.stopPropagation(); openZoneSelector('staff')">
                     Assigner</button>
             </div>
 
             <div class="zone zone-archives empty-required" id="zone-archives" onclick="openZoneSelector('archives')">
                 <div class="zone-header">
-                    <h3>Salle d'archives</h3>
+                    <h3>Salle darchives</h3>
                     <span class="capacity-badge" id="badge-archives">0/2</span>
                 </div>
                 <div class="zone-employees" id="employees-archives"></div>
-                <button class="btn-assign" onclick="event.stopPropagation(); openZoneSelector('archives')">+
+                <button class="btn-assign" data-rooms="archives" onclick="event.stopPropagation(); openZoneSelector('archives')">
                     Assigner</button>
             </div>
 
@@ -216,7 +216,7 @@
     </div>
 
     <!-- details -->
-    <div class="modal active" id="profileModal">
+    <div class="modal" id="profileModal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Profil</h3>
@@ -266,14 +266,14 @@
         </div>
     </div> -->
 
-    <div class="modal" id="selectorModal">
+    <div class="modal" id="selector-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Sélectionner</h3>
+                <h3>Selectionner</h3>
                 <button class="btn-close" onclick="closeSelectorModal()">&times;</button>
             </div>
             <!-- <p class="empty-message">Tous assignés</p> -->
-            <p class="empty-message">Tous assignés</p>
+            <p class="empty-message">Tous assignes</p>
             <div class="modal-body" id="selectorList"></div>
         </div>
     </div>

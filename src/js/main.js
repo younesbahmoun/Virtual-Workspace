@@ -217,6 +217,22 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
   closeAddEmployeModal();
 });
 
+
+function openZoneSelector(zoneId) {
+  document.getElementById("selector-modal").classList.add("active");
+}
+let btnAssignSelected = null;
+
+// rooms
+const btnAssign = document.querySelectorAll(".btn-assign");
+
+for (let i = 0; i < btnAssign.length; i++) {
+  btnAssign[i].addEventListener("click", () => {
+    btnAssignSelected = btnAssign[i].dataset.rooms;
+    openZoneSelector(btnAssignSelected);
+  });
+}
+
 // /* utility */
 function uid() {
   return "id-" + Math.random().toString(36).slice(2, 9);
