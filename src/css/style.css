@@ -373,11 +373,26 @@ body {
 
 .zone-employees {
   flex: 1;
+  justify-content: center;
+  align-items: center;
   overflow-y: auto;
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  /* gap: 0.2rem; */
+  gap: 1rem;
 }
+
+.imgg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* .imgg:hover {
+  transform: scale(1.3);
+  transition: 0.3s;
+} */
 
 .zone-employee {
   background: rgba(255, 255, 255, 0.95);
