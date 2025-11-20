@@ -29,17 +29,22 @@ document.getElementById("btn-add-employee").addEventListener("click", () => {
   openAddEmployeModal();
 });
 
-document
-  .getElementById("btn-cancel-add-employe")
-  .addEventListener("click", () => {
-    closeAddEmployeModal();
-  });
+document.getElementById("btn-cancel-add-employe").addEventListener("click", () => {
+  closeAddEmployeModal();
+});
 
-document
-  .getElementById("btn-close-modale-add-employe")
-  .addEventListener("click", () => {
-    closeAddEmployeModal();
-  });
+document.getElementById("btn-close-modale-add-employe").addEventListener("click", () => {
+  closeAddEmployeModal();
+});
+
+function closeSelectorModal() {
+  document.getElementById("selector-modal").classList.remove("active");
+  // currentZoneId = null;
+}
+
+document.getElementById("btn-close-modal-selector").addEventListener("click", () => {
+  closeSelectorModal();
+});
 
 function closeAddModal() {
   document.getElementById("addModal").classList.remove("active");
@@ -124,12 +129,6 @@ function experiencesEmploye() {
   return experienceEmploye;
 }
 
-// function supprimeEmploye (employe) {
-//   console.log(employe.dataset.employeId);
-
-//   employe.remove();
-// }
-
 function showProfile(employe) {
   const content = document.getElementById("profileContent");
   content.innerHTML += `
@@ -163,23 +162,29 @@ function showProfile(employe) {
     </div>
   `;
 }
-// Écouter les clics sur la liste parente
-document
-  .getElementById("unassigned-list")
-  .addEventListener("click", (event) => {
-    console.log(event.currentTarget); // Toujours #unassigned-list (l'écouteur)
-    // console.log(event.target.closest(".employee-card").dataset.employeId); // L'élément spécifique cliqué
-    // event.target.closest(".employee-card").remove();
-    // Trouver la carte employé cliquée
-    // const employeeCard = event.target.closest('.employee-card');
 
-    openAddEmployeModal();
-    supprimeEmploye(event.target.closest(".employee-card"));
-    // if (employeeCard) {
-    //   const employeeId = employeeCard.dataset.employeeId;
-    //   selectEmployee(employeeId);
-    // }
-  });
+// function supprimeEmploye (employe) {
+//   console.log(employe.dataset.employeId);
+
+//   employe.remove();
+// }
+// Écouter les clics sur la liste parente
+// document
+//   .getElementById("unassigned-list")
+//   .addEventListener("click", (event) => {
+//     console.log(event.currentTarget); // Toujours #unassigned-list (l'écouteur)
+//     // console.log(event.target.closest(".employee-card").dataset.employeId); // L'élément spécifique cliqué
+//     // event.target.closest(".employee-card").remove();
+//     // Trouver la carte employé cliquée
+//     // const employeeCard = event.target.closest('.employee-card');
+
+//     openAddEmployeModal();
+//     supprimeEmploye(event.target.closest(".employee-card"));
+//     // if (employeeCard) {
+//     //   const employeeId = employeeCard.dataset.employeeId;
+//     //   selectEmployee(employeeId);
+//     // }
+//   });
 
 function renderUnassigned(employe) {
   const list = document.getElementById("unassigned-list");
@@ -218,20 +223,31 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
 });
 
 
-function openZoneSelector(zoneId) {
-  document.getElementById("selector-modal").classList.add("active");
-}
-let btnAssignSelected = null;
+// function openZoneSelector(zoneId) {
+//   document.getElementById("selector-modal").classList.add("active");
+// }
+// let btnAssignSelected = null;
 
-// rooms
-const btnAssign = document.querySelectorAll(".btn-assign");
+// // rooms
+// const btnAssign = document.querySelectorAll(".btn-assign");
 
-for (let i = 0; i < btnAssign.length; i++) {
-  btnAssign[i].addEventListener("click", () => {
-    btnAssignSelected = btnAssign[i].dataset.rooms;
-    openZoneSelector(btnAssignSelected);
-  });
-}
+// for (let i = 0; i < btnAssign.length; i++) {
+//   btnAssign[i].addEventListener("click", () => {
+//     btnAssignSelected = btnAssign[i].dataset.rooms;
+//     openZoneSelector(btnAssignSelected);
+//   });
+// }
+
+
+document.querySelector(".rooms").addEventListener("click", event => {
+  const assignBtn = event.target.closest(".btn-assign");
+  if (assignBtn) {
+    document.getElementById("selector-modal").classList.add("active");
+  }
+  // console.log(event.target.closest());
+  
+  // event.target.closest(".btn-assign");
+});
 
 // /* utility */
 function uid() {
