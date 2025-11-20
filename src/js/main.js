@@ -80,7 +80,7 @@ const employees = {
     {
       id: uid(),
       name: "Sara Reception",
-      role: "Receptionist",
+      role: "reception",
       photo: "https://i.pravatar.cc/150?img=5",
       email: "sara@example.com",
       phone: "+212600333444",
@@ -143,15 +143,6 @@ const employees = {
   staff: [],
   archives: [],
 };
-
-for (const rooms in employees) {
-  if (employees[rooms].length) {
-    console.log(rooms);
-    for (let i = 0; i < employees[rooms].length; i++) {
-      console.log(employees[rooms][i]);
-    }
-  }
-}
 
 // console.log(employees["reception"][0].id);
 
@@ -297,15 +288,33 @@ function openZoneSelector(roomsId) {
   // document.getElementById("selector-modal").classList.add("active");
   const list = document.getElementById("selector-list");
   list.innerHTML = "";
-  if (employees["nonAssigne"].length) {
+  // if (roomsId) {
+
+  // }
+  // if (employees["nonAssigne"].length) {
     for (let i = 0; i < employees["nonAssigne"].length; i++) {
-      // if () {
-        list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
-      // }
+      
+      for (let j = 0; j < roomsConfig[roomsId].allowedRoles.length; j++) {
+        if (employees["nonAssigne"][i].role === roomsConfig[roomsId].allowedRoles[j]) {
+          list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
+          break;
+        }
+      }
+
+    //   for (const rooms in roomsConfig) {
+    //     if (roomsConfig[rooms].id === employees["nonAssigne"][i].role) {
+
+    //     }
+    //   }
+    //   if ("it" === employees["nonAssigne"][i].role) {
+    //     list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
+    //   }
     }
-  } else {
-    
-  }
+  // } else {
+  //   list.innerHTML += `
+  //     <p class="empty-message">Aucun employe disponible</p>
+  //   `;
+  // }
   // for (const rooms in employees) {
   //   if (employees[rooms].length) {
   //     // console.log(rooms);
@@ -321,11 +330,12 @@ function openZoneSelector(roomsId) {
 // click button Assigner
 document.querySelector(".rooms").addEventListener("click", (event) => {
   const assignBtn = event.target.closest(".btn-assign");
-  console.log(assignBtn.dataset.rooms);
 
   if (assignBtn) {
     document.getElementById("selector-modal").classList.add("active");
     openZoneSelector(assignBtn.dataset.rooms);
+    console.log(assignBtn.dataset.rooms);
+    
   }
   // console.log(event.target.closest());
 
@@ -341,43 +351,85 @@ function uid() {
 //   console.log(uid());
 // }
 
-const infoRooms = [
-  {
-    id: "conference",
-    name: "Salle de conference",
+// const infoRooms = [
+//   {
+//     id: "conference",
+//     name: "Salle de conference",
+//     capacity: 8,
+//     restricted: false,
+//   },
+//   {
+//     id: "server",
+//     name: "Salle des serveurs",
+//     capacity: 3,
+//     restricted: true,
+//     allowedRoles: ["Technicien IT"],
+//   },
+//   {
+//     id: "security",
+//     name: "Salle de securite",
+//     capacity: 2,
+//     restricted: true,
+//     allowedRoles: ["Agent de securite"],
+//   },
+//   {
+//     id: "reception",
+//     name: "Reception",
+//     capacity: 2,
+//     restricted: true,
+//     allowedRoles: ["Receptionniste"],
+//   },
+//   { id: "staff", name: "Salle du personnel", capacity: 10, restricted: false },
+//   {
+//     id: "archives",
+//     name: "Salle darchives",
+//     capacity: 2,
+//     restricted: true,
+//     forbiddenRoles: ["Nettoyage"],
+//   },
+// ];
+
+const roomsConfig = {
+  conference: {
+    name: "Salle de conférence",
     capacity: 8,
-    restricted: false,
+    required: false,
+    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "employee", "other"] // Tous autorisés
   },
-  {
-    id: "server",
+  reception: {
+    name: "Réception", 
+    capacity: 2,
+    required: true,
+    allowedRoles: ["manager", "reception"] // Seuls manager et réceptionniste
+  },
+  server: {
     name: "Salle des serveurs",
-    capacity: 3,
-    restricted: true,
-    allowedRoles: ["Technicien IT"],
+    capacity: 3, 
+    required: true,
+    allowedRoles: ["manager", "it"] // Seuls manager et IT
   },
-  {
-    id: "security",
-    name: "Salle de securite",
+  security: {
+    name: "Salle de sécurité",
     capacity: 2,
-    restricted: true,
-    allowedRoles: ["Agent de securite"],
+    required: true,
+    allowedRoles: ["manager", "security"] // Seuls manager et sécurité
   },
-  {
-    id: "reception",
-    name: "Reception",
+  staff: {
+    name: "Salle du personnel", 
+    capacity: 10,
+    required: false,
+    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "employee", "other"] // Tous autorisés
+  },
+  archives: {
+    name: "Salle d'archives",
     capacity: 2,
-    restricted: true,
-    allowedRoles: ["Receptionniste"],
-  },
-  { id: "staff", name: "Salle du personnel", capacity: 10, restricted: false },
-  {
-    id: "archives",
-    name: "Salle darchives",
-    capacity: 2,
-    restricted: true,
-    forbiddenRoles: ["Nettoyage"],
-  },
-];
+    required: true,
+    allowedRoles: ["manager", "reception", "it", "security", "employee", "other"] // Nettoyage EXCLU
+  }
+};
+
+// console.log(roomsConfig.archives.allowedRoles[1]);
+
 
 function createEmploye(urlImage) {
   const img = document.createElement("img");
