@@ -80,7 +80,7 @@ const employees = {
     {
       id: uid(),
       name: "Sara Reception",
-      role: "reception",
+      role: "manager",
       photo: "https://i.pravatar.cc/150?img=5",
       email: "sara@example.com",
       phone: "+212600333444",
@@ -394,40 +394,39 @@ const roomsConfig = {
     name: "Salle de conférence",
     capacity: 8,
     required: false,
-    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "employee", "other"] // Tous autorisés
+    allowedRoles: ["manager", "cleaning", "other"] // ✅ Seulement manager, cleaning, other
   },
   reception: {
     name: "Réception", 
     capacity: 2,
     required: true,
-    allowedRoles: ["manager", "reception"] // Seuls manager et réceptionniste
+    allowedRoles: ["manager", "reception", "cleaning"] // ✅ + cleaning pour maintenance
   },
   server: {
     name: "Salle des serveurs",
     capacity: 3, 
     required: true,
-    allowedRoles: ["manager", "it"] // Seuls manager et IT
+    allowedRoles: ["manager", "it", "cleaning"] // ✅ + cleaning pour maintenance
   },
   security: {
     name: "Salle de sécurité",
     capacity: 2,
     required: true,
-    allowedRoles: ["manager", "security"] // Seuls manager et sécurité
+    allowedRoles: ["manager", "security", "cleaning"] // ✅ + cleaning pour maintenance
   },
   staff: {
     name: "Salle du personnel", 
     capacity: 10,
     required: false,
-    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "employee", "other"] // Tous autorisés
+    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "employee", "other"] // ✅ Tous autorisés
   },
   archives: {
     name: "Salle d'archives",
     capacity: 2,
     required: true,
-    allowedRoles: ["manager", "reception", "it", "security", "employee", "other"] // Nettoyage EXCLU
+    allowedRoles: ["manager", "reception", "it", "security", "employee"] // ❌ NO cleaning, NO other
   }
 };
-
 // console.log(roomsConfig.archives.allowedRoles[1]);
 
 
