@@ -29,22 +29,28 @@ document.getElementById("btn-add-employee").addEventListener("click", () => {
   openAddEmployeModal();
 });
 
-document.getElementById("btn-cancel-add-employe").addEventListener("click", () => {
-  closeAddEmployeModal();
-});
+document
+  .getElementById("btn-cancel-add-employe")
+  .addEventListener("click", () => {
+    closeAddEmployeModal();
+  });
 
-document.getElementById("btn-close-modale-add-employe").addEventListener("click", () => {
-  closeAddEmployeModal();
-});
+document
+  .getElementById("btn-close-modale-add-employe")
+  .addEventListener("click", () => {
+    closeAddEmployeModal();
+  });
 
 function closeSelectorModal() {
   document.getElementById("selector-modal").classList.remove("active");
   // currentZoneId = null;
 }
 
-document.getElementById("btn-close-modal-selector").addEventListener("click", () => {
-  closeSelectorModal();
-});
+document
+  .getElementById("btn-close-modal-selector")
+  .addEventListener("click", () => {
+    closeSelectorModal();
+  });
 
 function closeAddModal() {
   document.getElementById("addModal").classList.remove("active");
@@ -70,33 +76,84 @@ document.getElementById("btn-add-exp").addEventListener("click", () => {
 });
 
 const employees = {
-  //   { id: uid(), name: 'Sara Reception', role: 'Receptionist', photo: 'https://i.pravatar.cc/150?img=5', email: 'sara@example.com', phone: '+212600333444', exp: [], location: null },
-  //   { id: uid(), name: 'Hamid Tech', role: 'Technician', photo: 'https://i.pravatar.cc/150?img=10', email: 'hamid@example.com', phone: '+212600555666', exp: [{ title: 'Sysadmin', company: 'ITCorp', years: '2y' }], location: null },
-  nonAssigne: [],
+  nonAssigne: [
+    {
+      id: uid(),
+      name: "Sara Reception",
+      role: "Receptionist",
+      photo: "https://i.pravatar.cc/150?img=5",
+      email: "sara@example.com",
+      phone: "+212600333444",
+      exp: [],
+      location: null,
+    },
+    {
+      id: uid(),
+      name: "Hamid Tech",
+      role: "it",
+      photo: "https://i.pravatar.cc/150?img=10",
+      email: "hamid@example.com",
+      phone: "+212600555666",
+      exp: [{ title: "Sysadmin", company: "ITCorp", years: "2y" }],
+      location: null,
+    },
+  ],
   conference: [
-    // {
-    //   id: uid(),
-    //   name: "Younes Bahmoon",
-    //   role: "Manager",
-    //   photo: "https://i.pravatar.cc/150?img=12",
-    //   email: "younes@example.com",
-    //   phone: "+212600111222",
-    //   exp: [
-    //     {
-    //       title: "Lead dev",
-    //       company: "WorkSphere",
-    //       years: "3y",
-    //     },
-    //   ],
-    //   location: null,
-    // },
+    {
+      id: uid(),
+      name: "Younes Bahmoon",
+      role: "manager",
+      photo: "https://i.pravatar.cc/150?img=12",
+      email: "younes@example.com",
+      phone: "+212600111222",
+      exp: [
+        {
+          title: "Lead dev",
+          company: "WorkSphere",
+          years: "3y",
+        },
+      ],
+      location: null,
+    },
   ],
   server: [],
   security: [],
-  reception: [],
+  reception: [
+    {
+      id: uid(),
+      name: "Sara Reception",
+      role: "Receptionist",
+      photo: "https://i.pravatar.cc/150?img=5",
+      email: "sara@example.com",
+      phone: "+212600333444",
+      exp: [],
+      location: null,
+    },
+    {
+      id: uid(),
+      name: "Hamid Tech",
+      role: "Technician",
+      photo: "https://i.pravatar.cc/150?img=10",
+      email: "hamid@example.com",
+      phone: "+212600555666",
+      exp: [{ title: "Sysadmin", company: "ITCorp", years: "2y" }],
+      location: null,
+    },
+  ],
   staff: [],
   archives: [],
 };
+
+for (const rooms in employees) {
+  if (employees[rooms].length) {
+    console.log(rooms);
+    for (let i = 0; i < employees[rooms].length; i++) {
+      console.log(employees[rooms][i]);
+    }
+  }
+}
+
+// console.log(employees["reception"][0].id);
 
 function experiencesEmploye() {
   const experiencesContainer = document.getElementById("experiences-container");
@@ -186,24 +243,27 @@ function showProfile(employe) {
 //     // }
 //   });
 
-function renderUnassigned(employe) {
-  const list = document.getElementById("unassigned-list");
-  list.innerHTML += `
-    <div class="employee-card">
+function createEmployeeCard(employee) {
+  return `
+    <div class="employee-card" data-employee-id="${employee.id}" data-role="${employee.role}">
       <div class="employee-card-content">
-          <img src="${employe.photo}" class="employee-avatar"  alt="Profile picture of ${employe.name}">
-          <div class="employee-info">
-              <h3>${employe.name}</h3>
-              <p>${employe.role}</p>
-          </div>
+        <img src="${employee.photo}" class="employee-avatar" alt="Profile picture of ${employee.name}">
+        <div class="employee-info">
+          <h3>${employee.name}</h3>
+          <p>${employee.role}</p>
+        </div>
       </div>
     </div>
   `;
 }
 
+function renderUnassigned(employe) {
+  const list = document.getElementById("unassigned-list");
+  list.innerHTML += createEmployeeCard(employe);
+}
+
 document.getElementById("add-form").addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(experiencesEmploye());
 
   const employe = {
     id: uid(),
@@ -217,15 +277,10 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
   };
   renderUnassigned(employe);
   employees["nonAssigne"].push(employe);
-  console.log(employees);
   // localStorage.setItem("rooms", JSON.stringify(employees));
   closeAddEmployeModal();
 });
 
-
-// function openZoneSelector(zoneId) {
-//   document.getElementById("selector-modal").classList.add("active");
-// }
 // let btnAssignSelected = null;
 
 // // rooms
@@ -238,14 +293,42 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
 //   });
 // }
 
+function openZoneSelector(roomsId) {
+  // document.getElementById("selector-modal").classList.add("active");
+  const list = document.getElementById("selector-list");
+  list.innerHTML = "";
+  if (employees["nonAssigne"].length) {
+    for (let i = 0; i < employees["nonAssigne"].length; i++) {
+      // if () {
+        list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
+      // }
+    }
+  } else {
+    
+  }
+  // for (const rooms in employees) {
+  //   if (employees[rooms].length) {
+  //     // console.log(rooms);
+  //     for (let i = 0; i < employees[rooms].length; i++) {
+  //       if (employees[rooms][i].id === roomsId) {
+  //         list.innerHTML += createEmployeeCard(employees[rooms][i]);
+  //       }
+  //     }
+  //   }
+  // }
+}
 
-document.querySelector(".rooms").addEventListener("click", event => {
+// click button Assigner
+document.querySelector(".rooms").addEventListener("click", (event) => {
   const assignBtn = event.target.closest(".btn-assign");
+  console.log(assignBtn.dataset.rooms);
+
   if (assignBtn) {
     document.getElementById("selector-modal").classList.add("active");
+    openZoneSelector(assignBtn.dataset.rooms);
   }
   // console.log(event.target.closest());
-  
+
   // event.target.closest(".btn-assign");
 });
 
@@ -296,17 +379,6 @@ const infoRooms = [
   },
 ];
 
-for (let i = 0; i < infoRooms.length; i++) {
-  console.log(infoRooms[i].id);
-  // console.log(employees[i]);
-}
-
-console.log("--------------");
-
-// for (const rooms in employees) {
-//   console.log(rooms);
-// }
-
 function createEmploye(urlImage) {
   const img = document.createElement("img");
   img.setAttribute("src", `${urlImage}`);
@@ -314,3 +386,13 @@ function createEmploye(urlImage) {
 
 // let dat = "1999-08-15";
 // console.log(Number(dat.split("-")[0]) === 1999);
+
+// const now = new Date();
+
+// const year = now.getFullYear();        // السنة
+// let month = now.getMonth() + 1;        // الشهر (0-11) لذلك +1
+// let day = now.getDate();
+
+// console.log(typeof year);
+// console.log(month);
+// console.log(day);
