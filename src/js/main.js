@@ -46,11 +46,9 @@ function closeSelectorModal() {
   // currentZoneId = null;
 }
 
-document
-  .getElementById("btn-close-modal-selector")
-  .addEventListener("click", () => {
+document.getElementById("btn-close-modal-selector").addEventListener("click", () => {
     closeSelectorModal();
-  });
+});
 
 function closeAddModal() {
   document.getElementById("addModal").classList.remove("active");
@@ -75,74 +73,36 @@ document.getElementById("btn-add-exp").addEventListener("click", () => {
   // document.getElementById("experiencesContainer").appendChild(document.querySelector(".experience-item").cloneNode(true));
 });
 
+// data tout employees in my app
 const employees = {
   nonAssigne: [
-    {
-      id: uid(),
-      name: "Sara Reception",
-      role: "manager",
-      photo: "https://i.pravatar.cc/150?img=5",
-      email: "sara@example.com",
-      phone: "+212600333444",
-      exp: [],
-      location: null,
-    },
-    {
-      id: uid(),
-      name: "Hamid Tech",
-      role: "it",
-      photo: "https://i.pravatar.cc/150?img=10",
-      email: "hamid@example.com",
-      phone: "+212600555666",
-      exp: [{ title: "Sysadmin", company: "ITCorp", years: "2y" }],
-      location: null,
-    },
+    { id: uid(), name: "Sara Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=5", email: "sara@example.com", phone: "+212600333444", exp: [], location: null },
+    { id: uid(), name: "Hamid Tech", role: "it", photo: "https://i.pravatar.cc/150?img=10", email: "hamid@example.com", phone: "+212600555666", exp: [{ title: "Sysadmin", company: "ITCorp", years: "2y" }], location: null },
+    { id: uid(), name: "Karim Security", role: "security", photo: "https://i.pravatar.cc/150?img=15", email: "karim@example.com", phone: "+212600777888", exp: [{ title: "Guard", company: "SecurCorp", years: "4y" }], location: null },
+    { id: uid(), name: "Fatima Cleaning", role: "cleaning", photo: "https://i.pravatar.cc/150?img=8", email: "fatima@example.com", phone: "+212600999000", exp: [{ title: "Cleaner", company: "CleanPro", years: "1y" }], location: null },
+    { id: uid(), name: "Ali Employee", role: "employee", photo: "https://i.pravatar.cc/150?img=20", email: "ali@example.com", phone: "+212600111222", exp: [{ title: "Developer", company: "TechSoft", years: "2y" }], location: null },
+    { id: uid(), name: "Guest Person", role: "other", photo: "https://i.pravatar.cc/150?img=25", email: "guest@example.com", phone: "+212600333444", exp: [], location: null }
   ],
   conference: [
-    {
-      id: uid(),
-      name: "Younes Bahmoon",
-      role: "manager",
-      photo: "https://i.pravatar.cc/150?img=12",
-      email: "younes@example.com",
-      phone: "+212600111222",
-      exp: [
-        {
-          title: "Lead dev",
-          company: "WorkSphere",
-          years: "3y",
-        },
-      ],
-      location: null,
-    },
+    { id: uid(), name: "Younes Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=12", email: "younes@example.com", phone: "+212600111222", exp: [{ title: "Lead dev", company: "WorkSphere", years: "3y" }], location: "conference" }
   ],
-  server: [],
-  security: [],
   reception: [
-    {
-      id: uid(),
-      name: "Sara Reception",
-      role: "Receptionist",
-      photo: "https://i.pravatar.cc/150?img=5",
-      email: "sara@example.com",
-      phone: "+212600333444",
-      exp: [],
-      location: null,
-    },
-    {
-      id: uid(),
-      name: "Hamid Tech",
-      role: "Technician",
-      photo: "https://i.pravatar.cc/150?img=10",
-      email: "hamid@example.com",
-      phone: "+212600555666",
-      exp: [{ title: "Sysadmin", company: "ITCorp", years: "2y" }],
-      location: null,
-    },
+    { id: uid(), name: "Lina Reception", role: "reception", photo: "https://i.pravatar.cc/150?img=3", email: "lina@example.com", phone: "+212600555666", exp: [{ title: "Receptionist", company: "Hotel Plaza", years: "2y" }], location: "reception" }
   ],
-  staff: [],
-  archives: [],
+  server: [
+    { id: uid(), name: "Tech IT", role: "it", photo: "https://i.pravatar.cc/150?img=7", email: "tech@example.com", phone: "+212600777888", exp: [{ title: "Network Admin", company: "DataCenter", years: "3y" }], location: "server" }
+  ],
+  security: [
+    { id: uid(), name: "Guard Security", role: "security", photo: "https://i.pravatar.cc/150?img=18", email: "guard@example.com", phone: "+212600999000", exp: [{ title: "Security Agent", company: "SafeGuard", years: "5y" }], location: "security" }
+  ],
+  staff: [
+    { id: uid(), name: "Regular Employee", role: "employee", photo: "https://i.pravatar.cc/150?img=30", email: "employee@example.com", phone: "+212600111333", exp: [{ title: "Analyst", company: "BusinessCorp", years: "2y" }], location: "staff" }
+  ],
+  archives: [
+    { id: uid(), name: "Doc Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=22", email: "doc@example.com", phone: "+212600444555", exp: [{ title: "Archivist", company: "DocStore", years: "4y" }], location: "archives" }
+  ]
 };
+
 
 // console.log(employees["reception"][0].id);
 
@@ -178,38 +138,57 @@ function experiencesEmploye() {
 }
 
 function showProfile(employe) {
-  const content = document.getElementById("profileContent");
+  const content = document.getElementById("profile-content");
+  
+  // Vider le contenu d'abord
+  content.innerHTML = '';
+  
+  // Header du profil
   content.innerHTML += `
     <div style="text-align:center;">
       <img src="${employe.photo}" class="profile-avatar">
-      <div class="profile-name">younes</div>
-      <div class="profile-role">Technicien IT</div>
+      <div class="profile-name">${employe.name}</div>
+      <div class="profile-role">${employe.role}</div>
     </div>
     <div class="info-item">
       <h4>Email</h4>
-      <p>younes@gmail.com</p>
+      <p>${employe.email}</p>
     </div>
     <div class="info-item">
       <h4>Téléphone</h4>
-      <p>0606060606</p>
+      <p>${employe.phone}</p>
     </div>
     <div class="info-item">
       <h4>Localisation</h4>
-      <p>Non assigné</p>
+      <p>${employe.location ? employe.location : 'Non assigné'}</p>
     </div>
     <div class="experiences-display">
       <h4>Expériences</h4>
-      <div class="exp-item">
-        <h5>ooo</h5>
-        <p>ooo</p><small>ooo</small>
-      </div>
-      <div class="exp-item">
-        <h5>ppp</h5>
-        <p>ppp</p><small>ppp</small>
-      </div>
-    </div>
   `;
+  
+  // Boucle pour les expériences
+  if (employe.exp && employe.exp.length > 0) {
+    for (let i = 0; i < employe.exp.length; i++) {
+      const experience = employe.exp[i];
+      content.innerHTML += `
+        <div class="exp-item">
+          <h5>${experience.title}</h5>
+          <p>${experience.company}</p>
+          <small>${experience.years}</small>
+        </div>
+      `;
+    }
+  } else {
+    content.innerHTML += `<p>Aucune experience</p>`;
+  }
+  
+  // Fermer la div experiences-display
+  content.innerHTML += `</div>`;
 }
+
+
+
+// showProfile(employees["nonAssigne"][5]);
 
 // function supprimeEmploye (employe) {
 //   console.log(employe.dataset.employeId);
@@ -217,22 +196,20 @@ function showProfile(employe) {
 //   employe.remove();
 // }
 // Écouter les clics sur la liste parente
-// document
-//   .getElementById("unassigned-list")
-//   .addEventListener("click", (event) => {
-//     console.log(event.currentTarget); // Toujours #unassigned-list (l'écouteur)
-//     // console.log(event.target.closest(".employee-card").dataset.employeId); // L'élément spécifique cliqué
-//     // event.target.closest(".employee-card").remove();
-//     // Trouver la carte employé cliquée
-//     // const employeeCard = event.target.closest('.employee-card');
+document.getElementById("unassigned-list").addEventListener("click", event => {
+  console.log(event.currentTarget); // Toujours #unassigned-list (l'écouteur)
+  // console.log(event.target.closest(".employee-card").dataset.employeId); // L'élément spécifique cliqué
+  // event.target.closest(".employee-card").remove();
+  // Trouver la carte employé cliquée
+  // const employeeCard = event.target.closest('.employee-card');
 
-//     openAddEmployeModal();
-//     supprimeEmploye(event.target.closest(".employee-card"));
-//     // if (employeeCard) {
-//     //   const employeeId = employeeCard.dataset.employeeId;
-//     //   selectEmployee(employeeId);
-//     // }
-//   });
+  openAddEmployeModal();
+  supprimeEmploye(event.target.closest(".employee-card"));
+  // if (employeeCard) {
+  //   const employeeId = employeeCard.dataset.employeeId;
+  //   selectEmployee(employeeId);
+  // }
+});
 
 function createEmployeeCard(employee) {
   return `
@@ -284,32 +261,47 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
 //   });
 // }
 
+// Fonction pour créer une carte image
+function createEmployeeImgCard(employee) {
+  return `
+    <div class="employee-img-card" data-employee-id="${employee.id}">
+      <img class="employee-img" src="${employee.photo}" alt="${employee.name}">
+      <button class="btn-remove-img" onclick="removeFromZone('${employee.id}')">×</button>
+    </div>
+  `;
+}
+
+function addEmployeInRooms() {
+
+}
+
+function searchEmploye (idEmploye) {
+
+}
+
 function openZoneSelector(roomsId) {
   // document.getElementById("selector-modal").classList.add("active");
   const list = document.getElementById("selector-list");
   list.innerHTML = "";
-  // if (roomsId) {
-
-  // }
-  // if (employees["nonAssigne"].length) {
-    for (let i = 0; i < employees["nonAssigne"].length; i++) {
-      
-      for (let j = 0; j < roomsConfig[roomsId].allowedRoles.length; j++) {
-        if (employees["nonAssigne"][i].role === roomsConfig[roomsId].allowedRoles[j]) {
-          list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
-          break;
-        }
+  // let isEmployeFound = null;
+  for (let i = 0; i < employees["nonAssigne"].length; i++) {
+    for (let j = 0; j < roomsConfig[roomsId].allowedRoles.length; j++) {
+      if (employees["nonAssigne"][i].role === roomsConfig[roomsId].allowedRoles[j]) {
+        list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
+        break;
       }
-
-    //   for (const rooms in roomsConfig) {
-    //     if (roomsConfig[rooms].id === employees["nonAssigne"][i].role) {
-
-    //     }
-    //   }
-    //   if ("it" === employees["nonAssigne"][i].role) {
-    //     list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
-    //   }
     }
+  }
+
+  list.addEventListener("click", (event) => {
+    console.log(event.target.closest(".employee-card"));
+    const employAdded = event.target.closest(".employee-card");
+    if (employAdded) {
+      searchEmploye(employAdded.dataset.employeeId, employAdded.dataset.role);
+      createEmployeeImgCard();
+    }
+  });
+
   // } else {
   //   list.innerHTML += `
   //     <p class="empty-message">Aucun employe disponible</p>
@@ -351,80 +343,45 @@ function uid() {
 //   console.log(uid());
 // }
 
-// const infoRooms = [
-//   {
-//     id: "conference",
-//     name: "Salle de conference",
-//     capacity: 8,
-//     restricted: false,
-//   },
-//   {
-//     id: "server",
-//     name: "Salle des serveurs",
-//     capacity: 3,
-//     restricted: true,
-//     allowedRoles: ["Technicien IT"],
-//   },
-//   {
-//     id: "security",
-//     name: "Salle de securite",
-//     capacity: 2,
-//     restricted: true,
-//     allowedRoles: ["Agent de securite"],
-//   },
-//   {
-//     id: "reception",
-//     name: "Reception",
-//     capacity: 2,
-//     restricted: true,
-//     allowedRoles: ["Receptionniste"],
-//   },
-//   { id: "staff", name: "Salle du personnel", capacity: 10, restricted: false },
-//   {
-//     id: "archives",
-//     name: "Salle darchives",
-//     capacity: 2,
-//     restricted: true,
-//     forbiddenRoles: ["Nettoyage"],
-//   },
-// ];
-
 const roomsConfig = {
   conference: {
     name: "Salle de conférence",
     capacity: 8,
     required: false,
-    allowedRoles: ["manager", "cleaning", "other"] // ✅ Seulement manager, cleaning, other
+    allowedRoles: ["manager", "cleaning", "other"]
   },
   reception: {
     name: "Réception", 
     capacity: 2,
     required: true,
-    allowedRoles: ["manager", "reception", "cleaning"] // ✅ + cleaning pour maintenance
+    allowedRoles: ["manager", "reception", "cleaning"]
   },
   server: {
     name: "Salle des serveurs",
     capacity: 3, 
     required: true,
-    allowedRoles: ["manager", "it", "cleaning"] // ✅ + cleaning pour maintenance
+    allowedRoles: ["manager", "it", "cleaning"]
   },
   security: {
     name: "Salle de sécurité",
     capacity: 2,
     required: true,
-    allowedRoles: ["manager", "security", "cleaning"] // ✅ + cleaning pour maintenance
+    // cleaning pour maintenance
+    allowedRoles: ["manager", "security", "cleaning"]
   },
   staff: {
     name: "Salle du personnel", 
     capacity: 10,
     required: false,
-    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "employee", "other"] // ✅ Tous autorisés
+    // Tous autorisés
+    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "employee", "other"]
   },
   archives: {
     name: "Salle d'archives",
     capacity: 2,
     required: true,
-    allowedRoles: ["manager", "reception", "it", "security", "employee"] // ❌ NO cleaning, NO other
+    // NO cleaning, NO other
+    allowedRoles: ["manager", "reception", "it", "security", "employee"]
   }
 };
 // console.log(roomsConfig.archives.allowedRoles[1]);
@@ -446,4 +403,4 @@ function createEmploye(urlImage) {
 
 // console.log(typeof year);
 // console.log(month);
-// console.log(day);
+// console.log(day);  
