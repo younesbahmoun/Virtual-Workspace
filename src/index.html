@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -57,7 +57,7 @@
                     <!-- <div class="zone-employee">
                         <div class="zone-employee-avatar"><img src="https://i.pravatar.cc/150?img=12" alt=""></div>
                         <div class="zone-employee-info">
-                            <h4>pooo</h4>
+                            <h4>younes bahmoun</h4>
                         </div><button class="btn-remove"
                             onclick="event.stopPropagation(); removeFromZone(1763481690850)">×</button>
                     </div> -->
@@ -133,108 +133,73 @@
                 <button class="btn-assign" data-rooms="archives">
                     Assigner</button>
             </div>
-
-
-
-            <!-- <div class="one">Conference Room</div>
-            <div class="three">3333333</div>
-            <div class="four">44444444</div>
-            <div class="five">
-                <p>test</p>
-                <p>test</p>
-            </div>
-            <div class="six">6666666</div>
-            <div class="seven">777777777</div> -->
         </main>
     </div>
+
+   
+
     <div class="modal" id="add-modal">
-        <div class="modal-content">
-            <!-- <form id="add-form" onsubmit="addEmployee(event)"> -->
-            <form id="add-form">
+    <div class="modal-content">
+        <form id="add-form">
+            <div class="modal-header">
+                <h3>Nouvel employé</h3>
+                <button class="btn-close" id="btn-close-modale-add-employe" type="button">&times;</button>
+            </div>
 
-                <div class="modal-header">
-                    <h3>Nouvel employé</h3>
-                    <button class="btn-close" id="btn-close-modale-add-employe" type="button">&times;</button>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nom complet *</label>
+                    <input type="text" id="emp-name" name="name">
                 </div>
 
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label>Nom complet *</label>
-                        <input type="text" id="emp-name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Role *</label>
-                        <!-- <select id="emp-role" name="role" required>
-                            <option data-role="manager">Manager</option>
-                            <option>Receptionniste</option>
-                            <option>Technicien IT</option>
-                            <option>Agent de securite</option>
-                            <option>Nettoyage</option>
-                            <option>Employe</option>
-                            <option v>Other</option>
-                        </select> -->
-                        <select id="emp-role" name="role" required>
-                            <option value="manager">Manager</option>
-                            <option value="reception">Receptionniste</option>
-                            <!-- servers -->
-                            <option value="it">Technicien IT</option>
-                            <option value="security">Agent de securite</option>
-                            <option value="cleaning">Nettoyage</option>
-                            <option value="employee">Employe</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Photo (URL)</label>
-                        <!-- <input type="url" id="emp-photo" name="photo" oninput="previewPhoto()"> -->
-                        <input type="url" id="emp-photo" name="photo">
-                        <div class="photo-preview" id="photo-preview">
-                            <img src="https://avatar.iran.liara.run/public/45" alt="">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input type="email" id="emp-email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Téléphone</label>
-                        <input type="tel" id="emp-phone" name="phone">
-                    </div>
-
-                    <div class="form-group">
-                        <div class="experiences-header">
-                            <label>Expériences</label>
-                            <button type="button" class="btn-add-exp" id="btn-add-exp">Ajouter</button>
-                        </div>
-                        <div id="experiences-container">
-                            <!-- <div class="experience-item">
-                                <input type="text" placeholder="Entreprise" class="exp-company">
-                                <input type="text" placeholder="Poste" class="exp-position">
-                                <input type="text" placeholder="Duree" class="exp-duration">
-                            </div>
-                            <div class="experience-item">
-                                <input type="text" placeholder="Entreprise" class="exp-company">
-                                <input type="text" placeholder="Poste" class="exp-position">
-                                <input type="text" placeholder="Duree" class="exp-duration">
-                            </div> -->
-                        </div>
-                    </div>
-
+                <div class="form-group">
+                    <label>Role *</label>
+                    <select id="emp-role" name="role">
+                        <option value="manager">Manager</option>
+                        <option value="reception">Receptionniste</option>
+                        <option value="it">Technicien IT</option>
+                        <option value="security">Agent de securite</option>
+                        <option value="cleaning">Nettoyage</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
 
-                <div class="modal-footer">
-                    <button class="btn-cancel" id="btn-cancel-add-employe" type="button">Annuler</button>
-                    <button class="btn-submit" type="submit">Ajouter</button>
+                <div class="form-group">
+                    <label>Photo (URL)</label>
+                    <input type="url" id="emp-photo" name="photo" oninput="previewPhoto()">
+                    <div class="photo-preview" id="photo-preview">
+                        <!-- Preview will appear here -->
+                    </div>
                 </div>
 
-            </form>
-        </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="emp-email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="tel" id="emp-phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <div class="experiences-header">
+                        <label>Expériences</label>
+                        <button type="button" class="btn-add-exp" id="btn-add-exp">Ajouter</button>
+                    </div>
+                    <div id="experiences-container">
+                        <!-- Experience items will be added here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" id="btn-cancel-add-employe" type="button">Annuler</button>
+                <button class="btn-submit" type="submit">Ajouter</button>
+            </div>
+        </form>
     </div>
+</div>
 
     <!-- details -->
     <div class="modal" id="profileModal">
@@ -276,7 +241,7 @@
         </div>
     </div>
 
-    <!-- <div class="modal active" id="profile-modal">
+    <div class="modal" id="profile-modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Profil</h3>
@@ -285,7 +250,7 @@
             <p class="empty-message">Tous assignés</p>
             <div class="modal-body" id="profileContent"></div>
         </div>
-    </div> -->
+    </div>
 
     <div class="modal" id="selector-modal">
         <div class="modal-content">
