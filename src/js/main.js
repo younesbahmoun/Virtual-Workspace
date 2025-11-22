@@ -7,6 +7,7 @@ function closeAddEmployeModal() {
   document.getElementById("add-modal").classList.remove("active");
   document.getElementById("add-form").reset();
   document.getElementById("photo-preview").innerHTML = "";
+  document.getElementById("experiences-container").innerHTML = "";
 }
 
 document.getElementById("btn-add-employee").addEventListener("click", () => {
@@ -169,18 +170,6 @@ function showProfile(employe) {
 //   //   selectEmployee(employeeId);
 //   // }
 // });
-
-// function addExperienceField () {
-//   const container = document.getElementById("experiences-container");
-//   const expDiv = document.createElement("div");
-//   expDiv.className = "experience-item";
-//   expDiv.innerHTML = `
-//     <input type="text" placeholder="Entreprise" class="exp-company">
-//     <input type="text" placeholder="Poste" class="exp-position">
-//     <input type="date" placeholder="Duree" class="exp-duration">
-//   `;
-//   container.appendChild(expDiv);
-// }
 
 // function addExperienceField() {
 //   const container = document.getElementById("experiences-container");
@@ -374,7 +363,7 @@ function validateForm() {
 document.getElementById("add-form").addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (!validateForm()) return;
+    // if (!validateForm()) return;
 
     const employe = {
         id: uid(),
@@ -536,15 +525,27 @@ function createEmploye(urlImage) {
 
 
 // Photo preview functionality
-function previewPhoto() {
-    const photoUrl = document.getElementById("emp-photo").value;
-    const preview = document.getElementById("photo-preview");
+// function previewPhoto() {
+//     const photoUrl = document.getElementById("emp-photo").value;
+//     const preview = document.getElementById("photo-preview");
     
-    if (photoUrl) {
-        preview.innerHTML = `<img src="${photoUrl}" alt="Photo preview">`;
-    } else {
-        preview.innerHTML = '';
+//     if (photoUrl) {
+//         preview.innerHTML = `<img src="${photoUrl}" alt="Photo preview">`;
+//     } else {
+//         preview.innerHTML = '';
+//     }
+// }
+
+function previewPhoto() {
+    const url = document.getElementById("emp-photo").value.trim();
+    const preview = document.getElementById("photo-preview");
+
+    if (url === "") {
+        preview.innerHTML = "";
+        return;
     }
+
+    preview.innerHTML = `<img src="${url}" alt="photo employe">`;
 }
 
 

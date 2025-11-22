@@ -597,7 +597,7 @@ before
 
 
 /* Photo Preview Styles */
-.photo-preview {
+/* .photo-preview {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
@@ -614,7 +614,7 @@ before
 
 .photo-preview img.show {
     display: block;
-}
+} */
 
 /* Experience Section Styles */
 .experience-item {
