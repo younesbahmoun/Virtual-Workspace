@@ -14,28 +14,34 @@ document.getElementById("btn-add-employee").addEventListener("click", () => {
   openAddEmployeModal();
 });
 
-document.getElementById("btn-cancel-add-employe").addEventListener("click", () => {
-  closeAddEmployeModal();
-});
+document
+  .getElementById("btn-cancel-add-employe")
+  .addEventListener("click", () => {
+    closeAddEmployeModal();
+  });
 
-document.getElementById("btn-close-modale-add-employe").addEventListener("click", () => {
-  closeAddEmployeModal();
-});
+document
+  .getElementById("btn-close-modale-add-employe")
+  .addEventListener("click", () => {
+    closeAddEmployeModal();
+  });
 
 function closeSelectorModal() {
   document.getElementById("selector-modal").classList.remove("active");
 }
 
-document.getElementById("btn-close-modal-selector").addEventListener("click", () => {
+document
+  .getElementById("btn-close-modal-selector")
+  .addEventListener("click", () => {
     closeSelectorModal();
-});
+  });
 
 // Remove experience field
 function removeExperience(expId) {
-    const expElement = document.getElementById(expId);
-    if (expElement) {
-        expElement.remove();
-    }
+  const expElement = document.getElementById(expId);
+  if (expElement) {
+    expElement.remove();
+  }
 }
 
 // Validate date logic
@@ -44,10 +50,10 @@ function removeExperience(expId) {
 //     const startDateInput = expElement.querySelector('.exp-date-debut');
 //     const endDateInput = expElement.querySelector('.exp-date-fin');
 //     const errorElement = expElement.querySelector('.date-error');
-    
+
 //     const startDate = new Date(startDateInput.value);
 //     const endDate = new Date(endDateInput.value);
-    
+
 //     if (startDate && endDate && endDate < startDate) {
 //         errorElement.classList.add('show');
 //         endDateInput.style.borderColor = '#e74c3c';
@@ -58,8 +64,6 @@ function removeExperience(expId) {
 //         return true;
 //     }
 // }
-
-
 
 document.getElementById("btn-add-exp").addEventListener("click", () => {
   addExperienceField();
@@ -97,226 +101,205 @@ document.getElementById("btn-add-exp").addEventListener("click", () => {
 //   ]
 // };
 
-
-const employees = {
-  nonAssigne: [
-    { 
-      id: uid(),
-      name: "Sara Manager",
-      role: "manager",
-      photo: "https://i.pravatar.cc/150?img=5",
-      email: "sara@example.com",
-      phone: "0660333444",
-      exp: [],
-      location: null
-    },
-    { 
-      id: uid(),
-      name: "Hamid Tech",
-      role: "it",
-      photo: "https://i.pravatar.cc/150?img=10",
-      email: "hamid@example.com",
-      phone: "0660555666",
-      exp: [
-        { 
-          company: "ITCorp",
-          position: "Sysadmin",
-          startDate: "2022-01-10",
-          endDate: "2022-06-01"
-        }
-      ],
-      location: null
-    },
-    { 
-      id: uid(),
-      name: "Karim Security",
-      role: "security",
-      photo: "https://i.pravatar.cc/150?img=15",
-      email: "karim@example.com",
-      phone: "0660777888",
-      exp: [
-        {
-          company: "SecurCorp",
-          position: "Guard",
-          startDate: "2021-05-01",
-          endDate: "2022-01-10"
-        }
-      ],
-      location: null
-    },
-    { 
-      id: uid(),
-      name: "Fatima Cleaning",
-      role: "cleaning",
-      photo: "https://i.pravatar.cc/150?img=8",
-      email: "fatima@example.com",
-      phone: "0660999000",
-      exp: [
-        {
-          company: "CleanPro",
-          position: "Cleaner",
-          startDate: "2020-02-01",
-          endDate: "2021-07-23"
-        }
-      ],
-      location: null
-    },
-    { 
-      id: uid(),
-      name: "Ali Employee",
-      role: "other",
-      photo: "https://i.pravatar.cc/150?img=20",
-      email: "ali@example.com",
-      phone: "0660111222",
-      exp: [
-        {
-          company: "TechSoft",
-          position: "Developer",
-          startDate: "2019-01-01",
-          endDate: "2021-01-01"
-        }
-      ],
-      location: null
-    },
-    { 
-      id: uid(),
-      name: "Guest Person",
-      role: "other",
-      photo: "https://i.pravatar.cc/150?img=25",
-      email: "guest@example.com",
-      phone: "0660333444",
-      exp: [],
-      location: null
-    }
-  ],
-
-  conference: [
-    { 
-      id: uid(),
-      name: "Younes Manager",
-      role: "manager",
-      photo: "https://i.pravatar.cc/150?img=12",
-      email: "younes@example.com",
-      phone: "0660111222",
-      exp: [
-        {
-          company: "WorkSphere",
-          position: "Lead Dev",
-          startDate: "2019-03-01",
-          endDate: "2022-03-01"
-        }
-      ],
-      location: "conference"
-    }
-  ],
-
-  reception: [
-    { 
-      id: uid(),
-      name: "Lina Reception",
-      role: "reception",
-      photo: "https://i.pravatar.cc/150?img=3",
-      email: "lina@example.com",
-      phone: "0660555666",
-      exp: [
-        {
-          company: "Hotel Plaza",
-          position: "Receptionist",
-          startDate: "2020-04-01",
-          endDate: "2022-01-01"
-        }
-      ],
-      location: "reception"
-    }
-  ],
-
-  server: [
-    { 
-      id: uid(),
-      name: "Tech IT",
-      role: "it",
-      photo: "https://i.pravatar.cc/150?img=7",
-      email: "tech@example.com",
-      phone: "0660777888",
-      exp: [
-        {
-          company: "DataCenter",
-          position: "Network Admin",
-          startDate: "2018-01-01",
-          endDate: "2022-01-01"
-        }
-      ],
-      location: "server"
-    }
-  ],
-
-  security: [
-    { 
-      id: uid(),
-      name: "Guard Security",
-      role: "security",
-      photo: "https://i.pravatar.cc/150?img=18",
-      email: "guard@example.com",
-      phone: "0660999000",
-      exp: [
-        {
-          company: "SafeGuard",
-          position: "Security Agent",
-          startDate: "2017-01-01",
-          endDate: "2022-01-01"
-        }
-      ],
-      location: "security"
-    }
-  ],
-
-  staff: [
-    { 
-      id: uid(),
-      name: "Regular Employee",
-      role: "other",
-      photo: "https://i.pravatar.cc/150?img=30",
-      email: "employee@example.com",
-      phone: "0660111333",
-      exp: [
-        {
-          company: "BusinessCorp",
-          position: "Analyst",
-          startDate: "2019-01-01",
-          endDate: "2021-01-01"
-        }
-      ],
-      location: "staff"
-    }
-  ],
-
-  archives: [
-    { 
-      id: uid(),
-      name: "Doc Manager",
-      role: "manager",
-      photo: "https://i.pravatar.cc/150?img=22",
-      email: "doc@example.com",
-      phone: "0660444555",
-      exp: [
-        {
-          company: "DocStore",
-          position: "Archivist",
-          startDate: "2018-01-01",
-          endDate: "2022-01-01"
-        }
-      ],
-      location: "archives"
-    }
-  ],
-};
+const employees = [
+  {
+    id: uid(),
+    name: "Sara Manager",
+    role: "manager",
+    photo: "https://i.pravatar.cc/150?img=5",
+    email: "sara@example.com",
+    phone: "0660333444",
+    exp: [],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Hamid Tech",
+    role: "it",
+    photo: "https://i.pravatar.cc/150?img=10",
+    email: "hamid@example.com",
+    phone: "0660555666",
+    exp: [
+      {
+        company: "ITCorp",
+        position: "Sysadmin",
+        startDate: "2022-01-10",
+        endDate: "2022-06-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Karim Security",
+    role: "security",
+    photo: "https://i.pravatar.cc/150?img=15",
+    email: "karim@example.com",
+    phone: "0660777888",
+    exp: [
+      {
+        company: "SecurCorp",
+        position: "Guard",
+        startDate: "2021-05-01",
+        endDate: "2022-01-10",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Fatima Cleaning",
+    role: "cleaning",
+    photo: "https://i.pravatar.cc/150?img=8",
+    email: "fatima@example.com",
+    phone: "0660999000",
+    exp: [
+      {
+        company: "CleanPro",
+        position: "Cleaner",
+        startDate: "2020-02-01",
+        endDate: "2021-07-23",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Ali Employee",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=20",
+    email: "ali@example.com",
+    phone: "0660111222",
+    exp: [
+      {
+        company: "TechSoft",
+        position: "Developer",
+        startDate: "2019-01-01",
+        endDate: "2021-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Guest Person",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=25",
+    email: "guest@example.com",
+    phone: "0660333444",
+    exp: [],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Younes Manager",
+    role: "manager",
+    photo: "https://i.pravatar.cc/150?img=12",
+    email: "younes@example.com",
+    phone: "0660111222",
+    exp: [
+      {
+        company: "WorkSphere",
+        position: "Lead Dev",
+        startDate: "2019-03-01",
+        endDate: "2022-03-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Lina Reception",
+    role: "reception",
+    photo: "https://i.pravatar.cc/150?img=3",
+    email: "lina@example.com",
+    phone: "0660555666",
+    exp: [
+      {
+        company: "Hotel Plaza",
+        position: "Receptionist",
+        startDate: "2020-04-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Tech IT",
+    role: "it",
+    photo: "https://i.pravatar.cc/150?img=7",
+    email: "tech@example.com",
+    phone: "0660777888",
+    exp: [
+      {
+        company: "DataCenter",
+        position: "Network Admin",
+        startDate: "2018-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Guard Security",
+    role: "security",
+    photo: "https://i.pravatar.cc/150?img=18",
+    email: "guard@example.com",
+    phone: "0660999000",
+    exp: [
+      {
+        company: "SafeGuard",
+        position: "Security Agent",
+        startDate: "2017-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Regular Employee",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=30",
+    email: "employee@example.com",
+    phone: "0660111333",
+    exp: [
+      {
+        company: "BusinessCorp",
+        position: "Analyst",
+        startDate: "2019-01-01",
+        endDate: "2021-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Doc Manager",
+    role: "manager",
+    photo: "https://i.pravatar.cc/150?img=22",
+    email: "doc@example.com",
+    phone: "0660444555",
+    exp: [
+      {
+        company: "DocStore",
+        position: "Archivist",
+        startDate: "2018-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+];
 
 function showProfile(employe) {
   const content = document.getElementById("profile-content");
-  
+
   // Vider le contenu d'abord
-  content.innerHTML = '';
-  
+  content.innerHTML = "";
+
   // Header du profil
   content.innerHTML += `
     <div style="text-align:center;">
@@ -334,12 +317,12 @@ function showProfile(employe) {
     </div>
     <div class="info-item">
       <h4>Localisation</h4>
-      <p>${employe.location ? employe.location : 'Non assigné'}</p>
+      <p>${employe.location ? employe.location : "Non assigné"}</p>
     </div>
     <div class="experiences-display">
       <h4>Expériences</h4>
   `;
-  
+
   // Boucle pour les expériences
   if (employe.exp && employe.exp.length > 0) {
     for (let i = 0; i < employe.exp.length; i++) {
@@ -355,7 +338,7 @@ function showProfile(employe) {
   } else {
     content.innerHTML += `<p>Aucune experience</p>`;
   }
-  
+
   // Fermer la div experiences-display
   content.innerHTML += `</div>`;
 }
@@ -367,13 +350,10 @@ function showProfile(employe) {
 
 //   employe.remove();
 // }
-// Écouter les clics sur la liste parente
+
 // document.getElementById("unassigned-list").addEventListener("click", event => {
 //   console.log(event.currentTarget); // Toujours #unassigned-list (l'écouteur)
 //   // console.log(event.target.closest(".employee-card").dataset.employeId); // L'élément spécifique cliqué
-//   // event.target.closest(".employee-card").remove();
-//   // Trouver la carte employé cliquée
-//   // const employeeCard = event.target.closest('.employee-card');
 
 //   openAddEmployeModal();
 //   // supprimeEmploye(event.target.closest(".employee-card"));
@@ -385,11 +365,11 @@ function showProfile(employe) {
 
 // Add experience field
 function addExperienceField() {
-    const container = document.getElementById("experiences-container");
-    
-    const expDiv = document.createElement("div");
-    expDiv.className = "experience-item";
-    expDiv.innerHTML = `
+  const container = document.getElementById("experiences-container");
+
+  const expDiv = document.createElement("div");
+  expDiv.className = "experience-item";
+  expDiv.innerHTML = `
         <button type="button" class="btn-remove-exp" onclick="this.parentElement.remove()">×</button>
         <div class="experience-row">
             <input type="text" placeholder="Entreprise *" class="exp-company" required>
@@ -400,8 +380,8 @@ function addExperienceField() {
             <input type="date" class="exp-date-fin" placeholder="Date fin *" required>
         </div>
     `;
-    
-    container.appendChild(expDiv);
+
+  container.appendChild(expDiv);
 }
 
 function experiencesEmploye() {
@@ -444,17 +424,17 @@ function experiencesEmploye() {
 
 //     for (let i = 0; i < experienceItems.length; i++) {
 //         const item = experienceItems[i];
-        
+
 //         const company = item.querySelector(".exp-company").value;
 //         const position = item.querySelector(".exp-position").value;
 //         const startDate = item.querySelector(".exp-date-debut").value;
 //         const endDate = item.querySelector(".exp-date-fin").value;
-        
+
 //         // Validate dates before adding
 //         if (!validateDates(item.id)) {
 //             return null; // Return null if dates are invalid
 //         }
-        
+
 //         // Only add if all required fields are filled
 //         if (company && position && startDate && endDate) {
 //             const exp = {
@@ -467,9 +447,9 @@ function experiencesEmploye() {
 //             experienceEmploye.push(exp);
 //         }
 //     }
-    
+
 //     return experienceEmploye.length > 0 ? experienceEmploye : null;
-// } 
+// }
 
 function createEmployeeCard(employee) {
   return `
@@ -491,95 +471,98 @@ function renderUnassigned(employe) {
   list.innerHTML += createEmployeeCard(employe);
 }
 
-// validate form 
+// validate form
 function validateExperiences() {
-    const expItems = document.querySelectorAll(".experience-item");
+  const expItems = document.querySelectorAll(".experience-item");
 
-    for (let exp of expItems) {
+  for (let exp of expItems) {
+    const company = exp.querySelector(".exp-company").value.trim();
+    const position = exp.querySelector(".exp-position").value.trim();
+    const startDate = exp.querySelector(".exp-date-debut").value;
+    const endDate = exp.querySelector(".exp-date-fin").value;
 
-        const company = exp.querySelector(".exp-company").value.trim();
-        const position = exp.querySelector(".exp-position").value.trim();
-        const startDate = exp.querySelector(".exp-date-debut").value;
-        const endDate = exp.querySelector(".exp-date-fin").value;
-
-        // Verification champs vides
-        if (company === "" || position === "" || startDate === "" || endDate === "") {
-            alert("Veuillez remplir tous les champs des expériences.");
-            return false;
-        }
-
-        // Verification dates
-        if (new Date(startDate) > new Date(endDate)) {
-            alert("La date de début doit être avant la date de fin.");
-            return false;
-        }
+    // Verification champs vides
+    if (
+      company === "" ||
+      position === "" ||
+      startDate === "" ||
+      endDate === ""
+    ) {
+      alert("Veuillez remplir tous les champs des expériences.");
+      return false;
     }
 
-    return true;
+    // Verification dates
+    if (new Date(startDate) > new Date(endDate)) {
+      alert("La date de début doit être avant la date de fin.");
+      return false;
+    }
+  }
+
+  return true;
 }
 
 function validateForm() {
-    const name = document.getElementById("emp-name").value.trim();
-    const email = document.getElementById("emp-email").value.trim();
-    const phone = document.getElementById("emp-phone").value.trim();
-    const photo = document.getElementById("emp-photo").value.trim();
+  const name = document.getElementById("emp-name").value.trim();
+  const email = document.getElementById("emp-email").value.trim();
+  const phone = document.getElementById("emp-phone").value.trim();
+  const photo = document.getElementById("emp-photo").value.trim();
 
-    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,40}$/;
-    const emailRegex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
-    const phoneRegex = /^(05|06|07)\d{8}$/;
-    // const photoRegex = /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp)$/i;
-    const photoRegex = /^http/i;
+  const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,40}$/;
+  const emailRegex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
+  const phoneRegex = /^(05|06|07)\d{8}$/;
+  // const photoRegex = /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp)$/i;
+  const photoRegex = /^http/i;
 
-    if (!nameRegex.test(name)) {
-        alert("Nom invalide !");
-        return false;
-    }
+  if (!nameRegex.test(name)) {
+    alert("Nom invalide !");
+    return false;
+  }
 
-    if (!emailRegex.test(email)) {
-        alert("Email invalide !");
-        return false;
-    }
+  if (!emailRegex.test(email)) {
+    alert("Email invalide !");
+    return false;
+  }
 
-    if (phone !== "" && !phoneRegex.test(phone)) {
-        alert("Téléphone marocain invalide !");
-        return false;
-    }
+  if (phone !== "" && !phoneRegex.test(phone)) {
+    alert("Téléphone marocain invalide !");
+    return false;
+  }
 
-    if (photo !== "" && !photoRegex.test(photo)) {
-        alert("Lien photo invalide !");
-        return false;
-    }
+  if (photo !== "" && !photoRegex.test(photo)) {
+    alert("Lien photo invalide !");
+    return false;
+  }
 
-    if (!validateExperiences()) {
-        return false;
-    }
+  if (!validateExperiences()) {
+    return false;
+  }
 
-    return true;
+  return true;
 }
 
 // submit data
 document.getElementById("add-form").addEventListener("submit", (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    // if (!validateForm()) return;
+  // if (!validateForm()) return;
 
-    const employe = {
-        id: uid(),
-        name: document.getElementById("emp-name").value,
-        role: document.getElementById("emp-role").value,
-        photo: document.getElementById("emp-photo").value,
-        email: document.getElementById("emp-email").value,
-        phone: document.getElementById("emp-phone").value,
-        exp: experiencesEmploye(),
-        location: null,
-    };
+  const employe = {
+    id: uid(),
+    name: document.getElementById("emp-name").value,
+    role: document.getElementById("emp-role").value,
+    photo: document.getElementById("emp-photo").value,
+    email: document.getElementById("emp-email").value,
+    phone: document.getElementById("emp-phone").value,
+    exp: experiencesEmploye(),
+    location: null,
+  };
 
-    renderUnassigned(employe);
-    employees["nonAssigne"].push(employe);
-    console.log(employees["nonAssigne"]);
-    
+  renderUnassigned(employe);
+  employees.push(employe);
+  console.log(employees);
 
-    closeAddEmployeModal();
+  closeAddEmployeModal();
 });
 // document.getElementById("add-form").addEventListener("submit", (event) => {
 //   event.preventDefault();
@@ -597,7 +580,7 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
 //   renderUnassigned(employe);
 //   employees["nonAssigne"].push(employe);
 //   console.log(employees.nonAssigne);
-  
+
 //   // localStorage.setItem("rooms", JSON.stringify(employees));
 //   closeAddEmployeModal();
 // });
@@ -612,37 +595,43 @@ function createEmployeeImgCard(employee) {
   `;
 }
 
-function addEmployeInRooms() {
+function addEmployeInRooms() {}
 
-}
+function searchEmploye(idEmploye) {}
 
-function searchEmploye (idEmploye) {
-
-}
+document.getElementById("selector-list").addEventListener("click", (event) => {
+  // <div class="employee-card" data-employee-id="${employee.id}" data-role
+  const employ = event.target.closest(".employee-card");
+  if (employ) {
+    console.log(employ);
+  }
+});
 
 function openZoneSelector(roomsId) {
   // document.getElementById("selector-modal").classList.add("active");
   const list = document.getElementById("selector-list");
   list.innerHTML = "";
   // let isEmployeFound = null;
-  for (let i = 0; i < employees["nonAssigne"].length; i++) {
-    for (let j = 0; j < roomsConfig[roomsId].allowedRoles.length; j++) {
-      if (employees["nonAssigne"][i].role === roomsConfig[roomsId].allowedRoles[j]) {
-        list.innerHTML += createEmployeeCard(employees["nonAssigne"][i]);
-        break;
+  for (let i = 0; i < employees.length; i++) {
+    if (!employees[i].location) {
+      for (let j = 0; j < roomsConfig[roomsId].allowedRoles.length; j++) {
+        if (employees[i].role === roomsConfig[roomsId].allowedRoles[j]) {
+          list.innerHTML += createEmployeeCard(employees[i]);
+          break;
+        }
       }
     }
   }
 
-  list.addEventListener("click", (event) => {
-    console.log(event.target.closest(".employee-card"));
-    const employAdded = event.target.closest(".employee-card");
-    if (employAdded) {
-      searchEmploye(employAdded.dataset.employeeId, employAdded.dataset.role);
-      // createEmployeeImgCard(employees.nonAssigne[0]);
-      createEmployeeImgCard();
-    }
-  });
+  // list.addEventListener("click", (event) => {
+  //   console.log(event.target.closest(".employee-card"));
+  //   const employAdded = event.target.closest(".employee-card");
+  //   if (employAdded) {
+  //     searchEmploye(employAdded.dataset.employeeId, employAdded.dataset.role);
+  //     // createEmployeeImgCard(employees.nonAssigne[0]);
+  //     createEmployeeImgCard();
+  //   }
+  // });
 }
 
 // click button Assigner
@@ -665,41 +654,48 @@ const roomsConfig = {
     name: "Salle de conference",
     capacity: 8,
     required: false,
-    allowedRoles: ["manager", "cleaning", "other"]
+    allowedRoles: ["manager", "cleaning", "other"],
   },
   reception: {
-    name: "Reception", 
+    name: "Reception",
     capacity: 2,
     required: true,
-    allowedRoles: ["manager", "reception", "cleaning"]
+    allowedRoles: ["manager", "reception", "cleaning"],
   },
   server: {
     name: "Salle des serveurs",
-    capacity: 3, 
+    capacity: 3,
     required: true,
-    allowedRoles: ["manager", "it", "cleaning"]
+    allowedRoles: ["manager", "it", "cleaning"],
   },
   security: {
     name: "Salle de securite",
     capacity: 2,
     required: true,
     // cleaning pour maintenance
-    allowedRoles: ["manager", "security", "cleaning"]
+    allowedRoles: ["manager", "security", "cleaning"],
   },
   staff: {
-    name: "Salle du personnel", 
+    name: "Salle du personnel",
     capacity: 10,
     required: false,
     // Tous autorisés
-    allowedRoles: ["manager", "reception", "it", "security", "cleaning", "other"]
+    allowedRoles: [
+      "manager",
+      "reception",
+      "it",
+      "security",
+      "cleaning",
+      "other",
+    ],
   },
   archives: {
     name: "Salle darchives",
     capacity: 2,
     required: true,
     // NO cleaning, NO other
-    allowedRoles: ["manager"]
-  }
+    allowedRoles: ["manager"],
+  },
 };
 
 function createEmploye(urlImage) {
@@ -712,21 +708,19 @@ function createEmploye(urlImage) {
 
 // const now = new Date();
 
-// const year = now.getFullYear(); 
+// const year = now.getFullYear();
 // let month = now.getMont();
 // let day = now.getDate();
 
 // console.log(typeof year);
 // console.log(month);
-// console.log(day);  
-
-
+// console.log(day);
 
 // Photo preview functionality
 // function previewPhoto() {
 //     const photoUrl = document.getElementById("emp-photo").value;
 //     const preview = document.getElementById("photo-preview");
-    
+
 //     if (photoUrl) {
 //         preview.innerHTML = `<img src="${photoUrl}" alt="Photo preview">`;
 //     } else {
@@ -735,17 +729,16 @@ function createEmploye(urlImage) {
 // }
 
 function previewPhoto() {
-    const url = document.getElementById("emp-photo").value.trim();
-    const preview = document.getElementById("photo-preview");
+  const url = document.getElementById("emp-photo").value.trim();
+  const preview = document.getElementById("photo-preview");
 
-    if (url === "") {
-        preview.innerHTML = "";
-        return;
-    }
+  if (url === "") {
+    preview.innerHTML = "";
+    return;
+  }
 
-    preview.innerHTML = `<img src="${url}" alt="photo employe">`;
+  preview.innerHTML = `<img src="${url}" alt="photo employe">`;
 }
-
 
 // function openProfileModal() {
 //   document.getElementById("profile-modal").classList.add("active");
