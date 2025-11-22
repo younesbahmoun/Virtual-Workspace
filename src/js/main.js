@@ -67,34 +67,248 @@ document.getElementById("btn-add-exp").addEventListener("click", () => {
 });
 
 // data tout employees in my app
+// const employees = {
+//   nonAssigne: [
+//     { id: uid(), name: "Sara Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=5", email: "sara@example.com", phone: "+212600333444", exp: [], location: null },
+//     { id: uid(), name: "Hamid Tech", role: "it", photo: "https://i.pravatar.cc/150?img=10", email: "hamid@example.com", phone: "+212600555666", exp: [{ title: "Sysadmin", company: "ITCorp", years: {annee: 0, mois: 5, jour: 22} }], location: null },
+//     { id: uid(), name: "Karim Security", role: "security", photo: "https://i.pravatar.cc/150?img=15", email: "karim@example.com", phone: "+212600777888", exp: [{ title: "Guard", company: "SecurCorp", years: {annee: 1, mois: 8, jour: 0} }], location: null },
+//     { id: uid(), name: "Fatima Cleaning", role: "cleaning", photo: "https://i.pravatar.cc/150?img=8", email: "fatima@example.com", phone: "+212600999000", exp: [{ title: "Cleaner", company: "CleanPro", years: {annee: 1, mois: 5, jour: 22} }], location: null },
+//     { id: uid(), name: "Ali Employee", role: "other", photo: "https://i.pravatar.cc/150?img=20", email: "ali@example.com", phone: "+212600111222", exp: [{ title: "Developer", company: "TechSoft", years: "2y" }], location: null },
+//     { id: uid(), name: "Guest Person", role: "other", photo: "https://i.pravatar.cc/150?img=25", email: "guest@example.com", phone: "+212600333444", exp: [], location: null }
+//   ],
+//   conference: [
+//     { id: uid(), name: "Younes Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=12", email: "younes@example.com", phone: "+212600111222", exp: [{ title: "Lead dev", company: "WorkSphere", years: "3y" }], location: "conference" }
+//   ],
+//   reception: [
+//     { id: uid(), name: "Lina Reception", role: "reception", photo: "https://i.pravatar.cc/150?img=3", email: "lina@example.com", phone: "+212600555666", exp: [{ title: "Receptionist", company: "Hotel Plaza", years: "2y" }], location: "reception" }
+//   ],
+//   server: [
+//     { id: uid(), name: "Tech IT", role: "it", photo: "https://i.pravatar.cc/150?img=7", email: "tech@example.com", phone: "+212600777888", exp: [{ title: "Network Admin", company: "DataCenter", years: "3y" }], location: "server" }
+//   ],
+//   security: [
+//     { id: uid(), name: "Guard Security", role: "security", photo: "https://i.pravatar.cc/150?img=18", email: "guard@example.com", phone: "+212600999000", exp: [{ title: "Security Agent", company: "SafeGuard", years: "5y" }], location: "security" }
+//   ],
+//   staff: [
+//     // { id: uid(), name: "Regular Employee", role: "employee", photo: "https://i.pravatar.cc/150?img=30", email: "employee@example.com", phone: "+212600111333", exp: [{ title: "Analyst", company: "BusinessCorp", years: "2y" }], location: "staff" }
+//     { id: uid(), name: "Regular Employee", role: "other", photo: "https://i.pravatar.cc/150?img=30", email: "employee@example.com", phone: "+212600111333", exp: [{ title: "Analyst", company: "BusinessCorp", years: "2y" }], location: "staff" }
+//   ],
+//   archives: [
+//     { id: uid(), name: "Doc Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=22", email: "doc@example.com", phone: "+212600444555", exp: [{ title: "Archivist", company: "DocStore", years: "4y" }], location: "archives" }
+//   ]
+// };
+
+
 const employees = {
   nonAssigne: [
-    { id: uid(), name: "Sara Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=5", email: "sara@example.com", phone: "+212600333444", exp: [], location: null },
-    { id: uid(), name: "Hamid Tech", role: "it", photo: "https://i.pravatar.cc/150?img=10", email: "hamid@example.com", phone: "+212600555666", exp: [{ title: "Sysadmin", company: "ITCorp", years: {annee: 0, mois: 5, jour: 22} }], location: null },
-    { id: uid(), name: "Karim Security", role: "security", photo: "https://i.pravatar.cc/150?img=15", email: "karim@example.com", phone: "+212600777888", exp: [{ title: "Guard", company: "SecurCorp", years: {annee: 1, mois: 8, jour: 0} }], location: null },
-    { id: uid(), name: "Fatima Cleaning", role: "cleaning", photo: "https://i.pravatar.cc/150?img=8", email: "fatima@example.com", phone: "+212600999000", exp: [{ title: "Cleaner", company: "CleanPro", years: {annee: 1, mois: 5, jour: 22} }], location: null },
-    { id: uid(), name: "Ali Employee", role: "other", photo: "https://i.pravatar.cc/150?img=20", email: "ali@example.com", phone: "+212600111222", exp: [{ title: "Developer", company: "TechSoft", years: "2y" }], location: null },
-    { id: uid(), name: "Guest Person", role: "other", photo: "https://i.pravatar.cc/150?img=25", email: "guest@example.com", phone: "+212600333444", exp: [], location: null }
+    { 
+      id: uid(),
+      name: "Sara Manager",
+      role: "manager",
+      photo: "https://i.pravatar.cc/150?img=5",
+      email: "sara@example.com",
+      phone: "0660333444",
+      exp: [],
+      location: null
+    },
+    { 
+      id: uid(),
+      name: "Hamid Tech",
+      role: "it",
+      photo: "https://i.pravatar.cc/150?img=10",
+      email: "hamid@example.com",
+      phone: "0660555666",
+      exp: [
+        { 
+          company: "ITCorp",
+          position: "Sysadmin",
+          startDate: "2022-01-10",
+          endDate: "2022-06-01"
+        }
+      ],
+      location: null
+    },
+    { 
+      id: uid(),
+      name: "Karim Security",
+      role: "security",
+      photo: "https://i.pravatar.cc/150?img=15",
+      email: "karim@example.com",
+      phone: "0660777888",
+      exp: [
+        {
+          company: "SecurCorp",
+          position: "Guard",
+          startDate: "2021-05-01",
+          endDate: "2022-01-10"
+        }
+      ],
+      location: null
+    },
+    { 
+      id: uid(),
+      name: "Fatima Cleaning",
+      role: "cleaning",
+      photo: "https://i.pravatar.cc/150?img=8",
+      email: "fatima@example.com",
+      phone: "0660999000",
+      exp: [
+        {
+          company: "CleanPro",
+          position: "Cleaner",
+          startDate: "2020-02-01",
+          endDate: "2021-07-23"
+        }
+      ],
+      location: null
+    },
+    { 
+      id: uid(),
+      name: "Ali Employee",
+      role: "other",
+      photo: "https://i.pravatar.cc/150?img=20",
+      email: "ali@example.com",
+      phone: "0660111222",
+      exp: [
+        {
+          company: "TechSoft",
+          position: "Developer",
+          startDate: "2019-01-01",
+          endDate: "2021-01-01"
+        }
+      ],
+      location: null
+    },
+    { 
+      id: uid(),
+      name: "Guest Person",
+      role: "other",
+      photo: "https://i.pravatar.cc/150?img=25",
+      email: "guest@example.com",
+      phone: "0660333444",
+      exp: [],
+      location: null
+    }
   ],
+
   conference: [
-    { id: uid(), name: "Younes Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=12", email: "younes@example.com", phone: "+212600111222", exp: [{ title: "Lead dev", company: "WorkSphere", years: "3y" }], location: "conference" }
+    { 
+      id: uid(),
+      name: "Younes Manager",
+      role: "manager",
+      photo: "https://i.pravatar.cc/150?img=12",
+      email: "younes@example.com",
+      phone: "0660111222",
+      exp: [
+        {
+          company: "WorkSphere",
+          position: "Lead Dev",
+          startDate: "2019-03-01",
+          endDate: "2022-03-01"
+        }
+      ],
+      location: "conference"
+    }
   ],
+
   reception: [
-    { id: uid(), name: "Lina Reception", role: "reception", photo: "https://i.pravatar.cc/150?img=3", email: "lina@example.com", phone: "+212600555666", exp: [{ title: "Receptionist", company: "Hotel Plaza", years: "2y" }], location: "reception" }
+    { 
+      id: uid(),
+      name: "Lina Reception",
+      role: "reception",
+      photo: "https://i.pravatar.cc/150?img=3",
+      email: "lina@example.com",
+      phone: "0660555666",
+      exp: [
+        {
+          company: "Hotel Plaza",
+          position: "Receptionist",
+          startDate: "2020-04-01",
+          endDate: "2022-01-01"
+        }
+      ],
+      location: "reception"
+    }
   ],
+
   server: [
-    { id: uid(), name: "Tech IT", role: "it", photo: "https://i.pravatar.cc/150?img=7", email: "tech@example.com", phone: "+212600777888", exp: [{ title: "Network Admin", company: "DataCenter", years: "3y" }], location: "server" }
+    { 
+      id: uid(),
+      name: "Tech IT",
+      role: "it",
+      photo: "https://i.pravatar.cc/150?img=7",
+      email: "tech@example.com",
+      phone: "0660777888",
+      exp: [
+        {
+          company: "DataCenter",
+          position: "Network Admin",
+          startDate: "2018-01-01",
+          endDate: "2022-01-01"
+        }
+      ],
+      location: "server"
+    }
   ],
+
   security: [
-    { id: uid(), name: "Guard Security", role: "security", photo: "https://i.pravatar.cc/150?img=18", email: "guard@example.com", phone: "+212600999000", exp: [{ title: "Security Agent", company: "SafeGuard", years: "5y" }], location: "security" }
+    { 
+      id: uid(),
+      name: "Guard Security",
+      role: "security",
+      photo: "https://i.pravatar.cc/150?img=18",
+      email: "guard@example.com",
+      phone: "0660999000",
+      exp: [
+        {
+          company: "SafeGuard",
+          position: "Security Agent",
+          startDate: "2017-01-01",
+          endDate: "2022-01-01"
+        }
+      ],
+      location: "security"
+    }
   ],
+
   staff: [
-    // { id: uid(), name: "Regular Employee", role: "employee", photo: "https://i.pravatar.cc/150?img=30", email: "employee@example.com", phone: "+212600111333", exp: [{ title: "Analyst", company: "BusinessCorp", years: "2y" }], location: "staff" }
-    { id: uid(), name: "Regular Employee", role: "other", photo: "https://i.pravatar.cc/150?img=30", email: "employee@example.com", phone: "+212600111333", exp: [{ title: "Analyst", company: "BusinessCorp", years: "2y" }], location: "staff" }
+    { 
+      id: uid(),
+      name: "Regular Employee",
+      role: "other",
+      photo: "https://i.pravatar.cc/150?img=30",
+      email: "employee@example.com",
+      phone: "0660111333",
+      exp: [
+        {
+          company: "BusinessCorp",
+          position: "Analyst",
+          startDate: "2019-01-01",
+          endDate: "2021-01-01"
+        }
+      ],
+      location: "staff"
+    }
   ],
+
   archives: [
-    { id: uid(), name: "Doc Manager", role: "manager", photo: "https://i.pravatar.cc/150?img=22", email: "doc@example.com", phone: "+212600444555", exp: [{ title: "Archivist", company: "DocStore", years: "4y" }], location: "archives" }
-  ]
+    { 
+      id: uid(),
+      name: "Doc Manager",
+      role: "manager",
+      photo: "https://i.pravatar.cc/150?img=22",
+      email: "doc@example.com",
+      phone: "0660444555",
+      exp: [
+        {
+          company: "DocStore",
+          position: "Archivist",
+          startDate: "2018-01-01",
+          endDate: "2022-01-01"
+        }
+      ],
+      location: "archives"
+    }
+  ],
 };
 
 function showProfile(employe) {
@@ -146,8 +360,6 @@ function showProfile(employe) {
   content.innerHTML += `</div>`;
 }
 
-
-
 // showProfile(employees["nonAssigne"][5]);
 
 // function supprimeEmploye (employe) {
@@ -170,20 +382,6 @@ function showProfile(employe) {
 //   //   selectEmployee(employeeId);
 //   // }
 // });
-
-// function addExperienceField() {
-//   const container = document.getElementById("experiences-container");
-//   const expDiv = document.createElement("div");
-//   expDiv.className = "experience-item";
-//   expDiv.innerHTML = `
-//     <input type="text" placeholder="Entreprise" class="exp-company" required>
-//     <input type="text" placeholder="Poste" class="exp-position" required>
-//     <input type="date" class="exp-date-debut" placeholder="Date début" required>
-//     <input type="date" class="exp-date-fin" placeholder="Date fin" required>
-//     <button type="button" class="btn-remove-exp" onclick="this.parentElement.remove()">×</button>
-//   `;
-//   container.appendChild(expDiv);
-// }
 
 // Add experience field
 function addExperienceField() {
