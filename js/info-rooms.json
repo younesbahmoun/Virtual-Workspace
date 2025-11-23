@@ -1,0 +1,41 @@
+[
+  {
+    "id": "conference",
+    "name": "Salle de conference",
+    "capacity": 8,
+    "restricted": false
+  },
+  {
+    "id": "reception",
+    "name": "Reception",
+    "capacity": 2,
+    "restricted": true,
+    "allowedRoles": ["Receptionniste"]
+  },
+  {
+    "id": "server",
+    "name": "Salle des serveurs",
+    "capacity": 3,
+    "restricted": true,
+    "allowedRoles": ["Technicien IT"]
+  },
+  {
+    "id": "security",
+    "name": "Salle de securite",
+    "capacity": 2,
+    "restricted": true,
+    "allowedRoles": ["Agent de securite"]
+  },
+  { "id": "staff",
+    "name": "Salle du personnel",
+    "capacity": 10,
+    "restricted": false
+  },
+  {
+    "id": "archives",
+    "name": "Salle darchives",
+    "capacity": 2,
+    "restricted": true,
+    "forbiddenRoles": ["Nettoyage"]
+  }
+]

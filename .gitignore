@@ -1,0 +1,5 @@
+# Ignore src folder
+src/
+
+# Ignore pages folder
+pages/

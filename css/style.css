@@ -340,7 +340,7 @@ body {
 .rooms {
   width: 75vw;
   height: 43vw;
-  background-image: url("../../roms.jpg");
+  background-image: url("../assets/images/roms.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: red;
