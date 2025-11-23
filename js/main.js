@@ -1,3 +1,245 @@
+// import { employees } from "../data/eployees.js";
+// import { roomsConfig } from "../data/rooms.js";
+const employees = [
+  {
+    id: uid(),
+    name: "Sara Manager",
+    role: "manager",
+    photo: "https://i.pravatar.cc/150?img=5",
+    email: "sara@example.com",
+    phone: "0660333444",
+    exp: [],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Hamid Tech",
+    role: "it",
+    photo: "https://i.pravatar.cc/150?img=10",
+    email: "hamid@example.com",
+    phone: "0660555666",
+    exp: [
+      {
+        company: "ITCorp",
+        position: "Sysadmin",
+        startDate: "2022-01-10",
+        endDate: "2022-06-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Karim Security",
+    role: "security",
+    photo: "https://i.pravatar.cc/150?img=15",
+    email: "karim@example.com",
+    phone: "0660777888",
+    exp: [
+      {
+        company: "SecurCorp",
+        position: "Guard",
+        startDate: "2021-05-01",
+        endDate: "2022-01-10",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Fatima Cleaning",
+    role: "cleaning",
+    photo: "https://i.pravatar.cc/150?img=8",
+    email: "fatima@example.com",
+    phone: "0660999000",
+    exp: [
+      {
+        company: "CleanPro",
+        position: "Cleaner",
+        startDate: "2020-02-01",
+        endDate: "2021-07-23",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Ali Employee",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=20",
+    email: "ali@example.com",
+    phone: "0660111222",
+    exp: [
+      {
+        company: "TechSoft",
+        position: "Developer",
+        startDate: "2019-01-01",
+        endDate: "2021-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Guest Person",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=25",
+    email: "guest@example.com",
+    phone: "0660333444",
+    exp: [],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Younes Manager",
+    role: "manager",
+    photo: "https://i.pravatar.cc/150?img=12",
+    email: "younes@example.com",
+    phone: "0660111222",
+    exp: [
+      {
+        company: "WorkSphere",
+        position: "Lead Dev",
+        startDate: "2019-03-01",
+        endDate: "2022-03-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Lina Reception",
+    role: "reception",
+    photo: "https://i.pravatar.cc/150?img=3",
+    email: "lina@example.com",
+    phone: "0660555666",
+    exp: [
+      {
+        company: "Hotel Plaza",
+        position: "Receptionist",
+        startDate: "2020-04-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Tech IT",
+    role: "it",
+    photo: "https://i.pravatar.cc/150?img=7",
+    email: "tech@example.com",
+    phone: "0660777888",
+    exp: [
+      {
+        company: "DataCenter",
+        position: "Network Admin",
+        startDate: "2018-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Guard Security",
+    role: "security",
+    photo: "https://i.pravatar.cc/150?img=18",
+    email: "guard@example.com",
+    phone: "0660999000",
+    exp: [
+      {
+        company: "SafeGuard",
+        position: "Security Agent",
+        startDate: "2017-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Regular Employee",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=30",
+    email: "employee@example.com",
+    phone: "0660111333",
+    exp: [
+      {
+        company: "BusinessCorp",
+        position: "Analyst",
+        startDate: "2019-01-01",
+        endDate: "2021-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Doc Manager",
+    role: "manager",
+    photo: "https://i.pravatar.cc/150?img=22",
+    email: "doc@example.com",
+    phone: "0660444555",
+    exp: [
+      {
+        company: "DocStore",
+        position: "Archivist",
+        startDate: "2018-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+];
+const roomsConfig = {
+  conference: {
+    name: "Salle de conference",
+    capacity: 8,
+    required: false,
+    allowedRoles: ["manager", "cleaning", "other"],
+  },
+  reception: {
+    name: "Reception",
+    capacity: 2,
+    required: true,
+    allowedRoles: ["manager", "reception", "cleaning"],
+  },
+  server: {
+    name: "Salle des serveurs",
+    capacity: 3,
+    required: true,
+    allowedRoles: ["manager", "it", "cleaning"],
+  },
+  security: {
+    name: "Salle de securite",
+    capacity: 2,
+    required: true,
+    // cleaning pour maintenance
+    allowedRoles: ["manager", "security", "cleaning"],
+  },
+  staff: {
+    name: "Salle du personnel",
+    capacity: 10,
+    required: false,
+    // Tous autorisés
+    allowedRoles: [
+      "manager",
+      "reception",
+      "it",
+      "security",
+      "cleaning",
+      "other",
+    ],
+  },
+  archives: {
+    name: "Salle darchives",
+    capacity: 2,
+    required: true,
+    // NO cleaning, NO other
+    allowedRoles: ["manager"],
+  },
+};
 // open and close modale add person
 function openAddEmployeModal() {
   document.getElementById("add-modal").classList.add("active");
@@ -322,6 +564,26 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
   closeAddEmployeModal();
 });
 
+function searchEmploye(employeeId) {
+  for (let i = 0; i < employees.length; i++) {
+    if (employees[i].id === employeeId) {
+      console.log(employees[i]);
+      return i;
+    }
+  }
+  return -1;
+}
+
+function searchEmployeFromUnassigned(employeeId) {
+  for (let i = 0; i < employees.length; i++) {
+    if (employees[i].id === employeeId) {
+      console.log(employees[i]);
+      return i;
+    }
+  }
+  return -1;
+}
+
 // Fonction pour créer une carte image
 // <button id="btn-remove-img" class="btn-remove-img" onclick="removeFromZone('${employee.id}')">×</button>
 function createEmployeeImgCard(employee) {
@@ -333,14 +595,26 @@ function createEmployeeImgCard(employee) {
   `;
 }
 
-function searchEmploye(employeeId) {
-  for (let i = 0; i < employees.length; i++) {
-    if (employees[i].id === employeeId) {
-      console.log(employees[i]);
-      return i;
+function checkUnsigneIsVide() {
+  const list = document.getElementById("unassigned-list");
+  // <p class="empty-message">Tous assignes</p>
+  if (list.childElementCount === 0) {
+    list.innerHTML += `<p class="empty-message">Tous assignes</p>`;
+  }
+}
+remplireUnsigneAuto();
+checkUnsigneIsVide();
+
+function supprimerEmployeFromUnsigne(employeeId) {
+  const list = document.getElementById("unassigned-list");
+  for (let i = 0; i < list.childElementCount; i++) {
+    if (list.children[i].getAttribute("data-employee-id") === employeeId) {
+      list.children[i].remove();
+      break;
     }
   }
-  return -1;
+  unassignedCountMines();
+  checkUnsigneIsVide();
 }
 
 function addEmployeInRooms(employeeId, roomsId) {
@@ -348,6 +622,7 @@ function addEmployeInRooms(employeeId, roomsId) {
   employees[indixEmployeSelected].location = roomsId;
   document.getElementById(`employees-${roomsId}`).innerHTML +=
     createEmployeeImgCard(employees[indixEmployeSelected]);
+  supprimerEmployeFromUnsigne(employeeId);
 }
 
 // click in person to assign to room logic
@@ -389,6 +664,7 @@ function openZoneSelector(roomsId) {
     if (employ) {
       addEmployeInRooms(employ.dataset.employeeId, roomsId);
       closeSelectorModal();
+      // unassignedCountMines();
     }
   };
   // });
@@ -440,7 +716,7 @@ document.querySelector(".rooms").addEventListener("click", (event) => {
       removeFromZone(employeeCard);
     }
   }
-  
+
   // if (event.target.classList.contains("btn-remove-img")) {
   //   const employeeCard = event.target.closest(".employee-img-card");
   //   if (employeeCard) {
@@ -521,7 +797,21 @@ function previewPhoto() {
 //     closeProfileModal();
 // });
 
+function remplireUnsigneAuto() {
+  for (let i = 0; i < employees.length; i++) {
+    if (!employees[i].location) {
+      renderUnassigned(employees[i]);
+      unassignedCountPlus();
+    }
+  }
+}
 
-// for (let i = 0; i < ) {
+function unassignedCountPlus() {
+  const unassignedCountTxt = document.getElementById("unassigned-count");
+  unassignedCountTxt.textContent = Number(unassignedCountTxt.textContent) + 1;
+}
 
-// }
+function unassignedCountMines() {
+  const unassignedCountTxt = document.getElementById("unassigned-count");
+  unassignedCountTxt.textContent = Number(unassignedCountTxt.textContent) - 1;
+}

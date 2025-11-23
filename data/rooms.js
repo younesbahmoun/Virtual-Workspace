@@ -1,4 +1,4 @@
-const roomsConfig = {
+export const roomsConfig = {
   conference: {
     name: "Salle de conference",
     capacity: 8,
