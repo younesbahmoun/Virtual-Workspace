@@ -475,13 +475,13 @@ function validateExperiences() {
       startDate === "" ||
       endDate === ""
     ) {
-      alert("Veuillez remplir tous les champs des expériences.");
+      alert("Veuillez remplir tous les champs des experiences.");
       return false;
     }
 
     // Verification dates
     if (new Date(startDate) > new Date(endDate)) {
-      alert("La date de début doit être avant la date de fin.");
+      alert("La date de debut doit etre avant la date de fin.");
       return false;
     }
   }
@@ -613,7 +613,7 @@ function addEmployeInRooms(employeeId, roomsId) {
   supprimerEmployeFromUnsigne(employeeId);
 }
 
-// details
+// page details
 document.getElementById("unassigned-list").addEventListener("click", (event) => {
   const employe = event.target.closest(".employee-card");
   if (employe) {
@@ -695,21 +695,23 @@ function removeFromZone(employeeCard) {
 document.querySelector(".rooms").addEventListener("click", (event) => {
   const assignBtn = event.target.closest(".btn-assign");
   if (assignBtn) {
-    document.getElementById("selector-modal").classList.add("active");
-    openZoneSelector(assignBtn.dataset.rooms);
-    console.log(assignBtn.dataset.rooms);
+    const roomSelected = assignBtn.dataset.rooms;
+    console.log(roomSelected);
+    const employesInRooms = document.getElementById(`employees-${roomSelected}`);
+    if (employesInRooms.childElementCount === roomsConfig[roomSelected].capacity) {
+      alert("La salle a atteint sa capacite maximale");
+    } else {
+      document.getElementById("selector-modal").classList.add("active");
+      openZoneSelector(roomSelected);
+    }
+    
   }
 
   const removeBtn = event.target.closest(".btn-remove-img");
 
   if (removeBtn) {
-    // Get the parent employee card
     const employeeCard = removeBtn.closest(".employee-img-card");
-
     if (employeeCard) {
-      // const employeeId = employeeCard.dataset.employeeId;
-      // console.log("Removing employee:", employeeId);
-      // removeFromZone(employeeId);
       removeFromZone(employeeCard);
     }
   }
@@ -719,19 +721,6 @@ document.querySelector(".rooms").addEventListener("click", (event) => {
   //   if (employeeCard) {
   //     removeFromZone(employeeCard.dataset.employeeId);
   //   }
-  // }
-
-  // Handle remove button clicks
-  // const employeeCard = event.target.closest(".employee-img-card");
-  // const employeeCard = event.target.closest(".btn-remove-img");
-  // if (employeeCard) {
-  //   // removeFromZone(employeeCard.dataset.employeeId);
-  //   removeFromZone(employeeCard);
-  // }
-
-  // const employeeCard = event.target.closest(".employee-img-card");
-  // if (employeeCard) {
-  //   openProfileModal(employeeCard);
   // }
 });
 
