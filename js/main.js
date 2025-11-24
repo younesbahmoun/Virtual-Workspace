@@ -555,7 +555,6 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
 function searchEmploye(employeeId) {
   for (let i = 0; i < employees.length; i++) {
     if (employees[i].id === employeeId) {
-      // console.log(employees[i]);
       return i;
     }
   }
@@ -680,15 +679,12 @@ function openZoneSelector(roomsId) {
   // }
 }
 
+
 function removeFromZone(employeeCard) {
-  for (let i = 0; i < employees.length; i++) {
-    if (employees[i].id === employeeCard.dataset.employeeId) {
-      employees[i].location = null;
-      console.log(employees[i]);
-      break;
-    }
-  }
+  const indexEmploye = searchEmploye(employeeCard.dataset.employeeId)
+  employees[indexEmploye].location = null;
   employeeCard.remove();
+  renderUnassigned(employees[indexEmploye]);
 }
 
 // click button Assigner
