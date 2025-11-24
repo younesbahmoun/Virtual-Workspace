@@ -373,8 +373,11 @@ body {
 }
 
 .zone.empty-required {
+  /* background-color: #2980b9; */
   background: rgba(231, 76, 60, 0.15);
+  /* background: rgba(22, 217, 5, 0.15); */
   border-color: rgba(231, 76, 60, 0.4);
+  /* border-color: rgba(228, 13, 124, 0.4); */
 }
 
 .zone.empty-required:hover {

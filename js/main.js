@@ -45,135 +45,137 @@ const employees = [
     ],
     location: null,
   },
-  // {
-  //   id: uid(),
-  //   name: "Fatima Cleaning",
-  //   role: "cleaning",
-  //   photo: "https://i.pravatar.cc/150?img=8",
-  //   email: "fatima@example.com",
-  //   phone: "0660999000",
-  //   exp: [
-  //     {
-  //       company: "CleanPro",
-  //       position: "Cleaner",
-  //       startDate: "2020-02-01",
-  //       endDate: "2021-07-23",
-  //     },
-  //   ],
-  //   location: null,
-  // },
-  // {
-  //   id: uid(),
-  //   name: "Ali Employee",
-  //   role: "other",
-  //   photo: "https://i.pravatar.cc/150?img=20",
-  //   email: "ali@example.com",
-  //   phone: "0660111222",
-  //   exp: [
-  //     {
-  //       company: "TechSoft",
-  //       position: "Developer",
-  //       startDate: "2019-01-01",
-  //       endDate: "2021-01-01",
-  //     },
-  //   ],
-  //   location: null,
-  // },
-  // {
-  //   id: uid(),
-  //   name: "Guest Person",
-  //   role: "other",
-  //   photo: "https://i.pravatar.cc/150?img=25",
-  //   email: "guest@example.com",
-  //   phone: "0660333444",
-  //   exp: [],
-  //   location: null,
-  // },
-  // {
-  //   id: uid(),
-  //   name: "Younes Manager",
-  //   role: "manager",
-  //   photo: "https://i.pravatar.cc/150?img=12",
-  //   email: "younes@example.com",
-  //   phone: "0660111222",
-  //   exp: [
-  //     {
-  //       company: "WorkSphere",
-  //       position: "Lead Dev",
-  //       startDate: "2019-03-01",
-  //       endDate: "2022-03-01",
-  //     },
-  //   ],
-  //   location: null,
-  // },
-  // {
-  //   id: uid(),
-  //   name: "Lina Reception",
-  //   role: "reception",
-  //   photo: "https://i.pravatar.cc/150?img=3",
-  //   email: "lina@example.com",
-  //   phone: "0660555666",
-  //   exp: [
-  //     {
-  //       company: "Hotel Plaza",
-  //       position: "Receptionist",
-  //       startDate: "2020-04-01",
-  //       endDate: "2022-01-01",
-  //     },
-  //   ],
-  //   location: null,
-  // },
-  // {
-  //   id: uid(),
-  //   name: "Tech IT",
-  //   role: "it",
-  //   photo: "https://i.pravatar.cc/150?img=7",
-  //   email: "tech@example.com",
-  //   phone: "0660777888",
-  //   exp: [
-  //     {
-  //       company: "DataCenter",
-  //       position: "Network Admin",
-  //       startDate: "2018-01-01",
-  //       endDate: "2022-01-01",
-  //     },
-  //   ],
-  //   location: null,
-  // },
-  // {
-  //   id: uid(),
-  //   name: "Guard Security",
-  //   role: "security",
-  //   photo: "https://i.pravatar.cc/150?img=18",
-  //   email: "guard@example.com",
-  //   phone: "0660999000",
-  //   exp: [
-  //     {
-  //       company: "SafeGuard",
-  //       position: "Security Agent",
-  //       startDate: "2017-01-01",
-  //       endDate: "2022-01-01",
-  //     },
-  //   ],
-  //   location: null,
-  // },
-  // {
-  //   id: uid(),
-  //   name: "Regular Employee",
-  //   role: "other",
-  //   photo: "https://i.pravatar.cc/150?img=30",
-  //   email: "employee@example.com",
-  //   phone: "0660111333",
-  //   exp: [
-  //     {
-  //       company: "BusinessCorp",
-  //       position: "Analyst",
-  //       startDate: "2019-01-01",
-  //       endDate: "2021-01-01",
-  //     },
-  //   ],
-  //   location: null,
-  // },
+
+  {
+    id: uid(),
+    name: "Fatima Cleaning",
+    role: "cleaning",
+    photo: "https://i.pravatar.cc/150?img=8",
+    email: "fatima@example.com",
+    phone: "0660999000",
+    exp: [
+      {
+        company: "CleanPro",
+        position: "Cleaner",
+        startDate: "2020-02-01",
+        endDate: "2021-07-23",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Ali Employee",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=20",
+    email: "ali@example.com",
+    phone: "0660111222",
+    exp: [
+      {
+        company: "TechSoft",
+        position: "Developer",
+        startDate: "2019-01-01",
+        endDate: "2021-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Guest Person",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=25",
+    email: "guest@example.com",
+    phone: "0660333444",
+    exp: [],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Younes Manager",
+    role: "manager",
+    photo: "https://i.pravatar.cc/150?img=12",
+    email: "younes@example.com",
+    phone: "0660111222",
+    exp: [
+      {
+        company: "WorkSphere",
+        position: "Lead Dev",
+        startDate: "2019-03-01",
+        endDate: "2022-03-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Lina Reception",
+    role: "reception",
+    photo: "https://i.pravatar.cc/150?img=3",
+    email: "lina@example.com",
+    phone: "0660555666",
+    exp: [
+      {
+        company: "Hotel Plaza",
+        position: "Receptionist",
+        startDate: "2020-04-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Tech IT",
+    role: "it",
+    photo: "https://i.pravatar.cc/150?img=7",
+    email: "tech@example.com",
+    phone: "0660777888",
+    exp: [
+      {
+        company: "DataCenter",
+        position: "Network Admin",
+        startDate: "2018-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Guard Security",
+    role: "security",
+    photo: "https://i.pravatar.cc/150?img=18",
+    email: "guard@example.com",
+    phone: "0660999000",
+    exp: [
+      {
+        company: "SafeGuard",
+        position: "Security Agent",
+        startDate: "2017-01-01",
+        endDate: "2022-01-01",
+      },
+    ],
+    location: null,
+  },
+  {
+    id: uid(),
+    name: "Regular Employee",
+    role: "other",
+    photo: "https://i.pravatar.cc/150?img=30",
+    email: "employee@example.com",
+    phone: "0660111333",
+    exp: [
+      {
+        company: "BusinessCorp",
+        position: "Analyst",
+        startDate: "2019-01-01",
+        endDate: "2021-01-01",
+      },
+    ],
+    location: null,
+  },
+
   {
     id: uid(),
     name: "Doc Manager",
@@ -256,27 +258,21 @@ document.getElementById("btn-add-employee").addEventListener("click", () => {
   openAddEmployeModal();
 });
 
-document
-  .getElementById("btn-cancel-add-employe")
-  .addEventListener("click", () => {
+document.getElementById("btn-cancel-add-employe").addEventListener("click", () => {
     closeAddEmployeModal();
-  });
+});
 
-document
-  .getElementById("btn-close-modale-add-employe")
-  .addEventListener("click", () => {
+document.getElementById("btn-close-modale-add-employe").addEventListener("click", () => {
     closeAddEmployeModal();
-  });
+});
 
 function closeSelectorModal() {
   document.getElementById("selector-modal").classList.remove("active");
 }
 
-document
-  .getElementById("btn-close-modal-selector")
-  .addEventListener("click", () => {
+document.getElementById("btn-close-modal-selector").addEventListener("click", () => {
     closeSelectorModal();
-  });
+});
 
 function openProfileModal() {
   document.getElementById("profile-modal").classList.add("active");
@@ -286,11 +282,9 @@ function closeProfileModal() {
   document.getElementById("profile-modal").classList.remove("active");
 }
 
-document
-  .getElementById("btn-close-profile-modale")
-  .addEventListener("click", () => {
+document.getElementById("btn-close-profile-modale").addEventListener("click", () => {
     closeProfileModal();
-  });
+});
 
 // Remove experience field
 function removeExperience(expId) {
@@ -300,86 +294,10 @@ function removeExperience(expId) {
   }
 }
 
-// Validate date logic
-// function validateDates(expId) {
-//     const expElement = document.getElementById(expId);
-//     const startDateInput = expElement.querySelector('.exp-date-debut');
-//     const endDateInput = expElement.querySelector('.exp-date-fin');
-//     const errorElement = expElement.querySelector('.date-error');
-
-//     const startDate = new Date(startDateInput.value);
-//     const endDate = new Date(endDateInput.value);
-
-//     if (startDate && endDate && endDate < startDate) {
-//         errorElement.classList.add('show');
-//         endDateInput.style.borderColor = '#e74c3c';
-//         return false;
-//     } else {
-//         errorElement.classList.remove('show');
-//         endDateInput.style.borderColor = '#dee2e6';
-//         return true;
-//     }
-// }
-
 document.getElementById("btn-add-exp").addEventListener("click", () => {
   addExperienceField();
   // document.getElementById("experiencesContainer").appendChild(document.querySelector(".experience-item").cloneNode(true));
 });
-
-function showProfile(employe) {
-  const content = document.getElementById("profile-content");
-
-  // Vider le contenu d'abord
-  content.innerHTML = "";
-
-  // Header du profil
-  content.innerHTML += `
-    <div style="text-align:center;">
-      <img src="${employe.photo}" class="profile-avatar">
-      <div class="profile-name">${employe.name}</div>
-      <div class="profile-role">${employe.role}</div>
-    </div>
-    <div class="info-item">
-      <h4>Email</h4>
-      <p>${employe.email}</p>
-    </div>
-    <div class="info-item">
-      <h4>Téléphone</h4>
-      <p>${employe.phone}</p>
-    </div>
-    <div class="info-item">
-      <h4>Localisation</h4>
-      <p>${employe.location ? employe.location : "Non assigne"}</p>
-    </div>
-    <div class="experiences-display">
-      <h4>Experiences</h4>
-  `;
-
-  // Boucle pour les expériences
-  if (employe.exp && employe.exp.length > 0) {
-    for (let i = 0; i < employe.exp.length; i++) {
-      const experience = employe.exp[i];
-      content.innerHTML += `
-        <div class="exp-item">
-          <h5>company : ${experience.company}</h5>
-          <p>position : ${experience.position}</p>
-          <p>Start Date : ${experience.startDate}</p>
-          <p>End Date : ${experience.endDate}</p>
-        </div>
-      `;
-    }
-  } else {
-    content.innerHTML += `<p>Aucune experience</p>`;
-  }
-
-  // Fermer la div experiences-display
-  content.innerHTML += `</div>`;
-}
-
-// <small>${experience.years}</small>
-
-// showProfile(employees[employees.length - 1]);
-// openProfileModal();
 
 // document.getElementById("unassigned-list").addEventListener("click", event => {
 //   console.log(event.currentTarget); // Toujours #unassigned-list (l'écouteur)
@@ -404,59 +322,6 @@ function addExperienceField() {
     `;
 
   container.appendChild(expDiv);
-}
-
-function experiencesEmploye() {
-  const experiencesContainer = document.getElementById("experiences-container");
-  if (experiencesContainer.childElementCount === 0) {
-    console.log("yes");
-    return null;
-  }
-  const experienceItems = document.querySelectorAll(".experience-item");
-  const experienceEmploye = [];
-
-  for (let i = 0; i < experienceItems.length; i++) {
-    const item = experienceItems[i];
-
-    // Get inputs from the CURRENT experience item
-    const company = item.querySelector(".exp-company").value;
-    const position = item.querySelector(".exp-position").value;
-    const startDate = item.querySelector(".exp-date-debut").value;
-    const endtDate = item.querySelector(".exp-date-fin").value;
-
-    // Only add if at least one field has data
-    // if (company || position || duration) {
-    const exp = {
-      post: position,
-      company: company,
-      startDate: startDate,
-      endDate: endtDate,
-    };
-    experienceEmploye.push(exp);
-    // }
-  }
-
-  return experienceEmploye;
-}
-
-function createEmployeeCard(employee) {
-  return `
-    <div class="employee-card" data-employee-id="${employee.id}" data-role="${employee.role}">
-      <div class="employee-card-content">
-        <img src="${employee.photo}" class="employee-avatar" alt="Profile picture of ${employee.name}">
-        <div class="employee-info">
-          <h3>${employee.name}</h3>
-          <p>${employee.role}</p>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-// add employ in non assigne
-function renderUnassigned(employe) {
-  const list = document.getElementById("unassigned-list");
-  list.innerHTML += createEmployeeCard(employe);
 }
 
 // validate form
@@ -529,7 +394,67 @@ function validateForm() {
   return true;
 }
 
-// submit data
+// /* utility */
+function uid() {
+  return "id-" + Math.random().toString(36).slice(2, 9);
+}
+
+// add experience
+function experiencesEmploye() {
+  const experiencesContainer = document.getElementById("experiences-container");
+  if (experiencesContainer.childElementCount === 0) {
+    console.log("yes");
+    return null;
+  }
+  const experienceItems = document.querySelectorAll(".experience-item");
+  const experienceEmploye = [];
+
+  for (let i = 0; i < experienceItems.length; i++) {
+    const item = experienceItems[i];
+
+    // Get inputs from the CURRENT experience item
+    const company = item.querySelector(".exp-company").value;
+    const position = item.querySelector(".exp-position").value;
+    const startDate = item.querySelector(".exp-date-debut").value;
+    const endtDate = item.querySelector(".exp-date-fin").value;
+
+    // Only add if at least one field has data
+    // if (company || position || duration) {
+    const exp = {
+      post: position,
+      company: company,
+      startDate: startDate,
+      endDate: endtDate,
+    };
+    experienceEmploye.push(exp);
+    // }
+  }
+
+  return experienceEmploye;
+}
+
+// Create Card Employe 
+function createEmployeeCard(employee) {
+  return `
+    <div class="employee-card" data-employee-id="${employee.id}" data-role="${employee.role}">
+      <div class="employee-card-content">
+        <img src="${employee.photo}" class="employee-avatar" alt="Profile picture of ${employee.name}">
+        <div class="employee-info">
+          <h3>${employee.name}</h3>
+          <p>${employee.role}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// add employ in non assigne
+function renderUnassigned(employe) {
+  const list = document.getElementById("unassigned-list");
+  list.innerHTML += createEmployeeCard(employe);
+}
+
+// 1) submit data (click Ajouter un employe)
 document.getElementById("add-form").addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -553,93 +478,66 @@ document.getElementById("add-form").addEventListener("submit", (event) => {
   closeAddEmployeModal();
 });
 
-function searchEmploye(employeeId) {
-  for (let i = 0; i < employees.length; i++) {
-    if (employees[i].id === employeeId) {
-      return i;
-    }
-  }
-  return -1;
-}
+// data details
+function showProfile(employe) {
+  const content = document.getElementById("profile-content");
+  // Vider le contenu d'abord
+  content.innerHTML = "";
 
-function searchEmployeFromUnassigned(employeeId) {
-  for (let i = 0; i < employees.length; i++) {
-    if (employees[i].id === employeeId) {
-      console.log(employees[i]);
-      return i;
-    }
-  }
-  return -1;
-}
-
-// Fonction pour créer une carte image
-// <button id="btn-remove-img" class="btn-remove-img" onclick="removeFromZone('${employee.id}')">×</button>
-function createEmployeeImgCard(employee) {
-  return `
-    <div class="employee-img-card" data-employee-id="${employee.id}">
-      <img class="employee-img" src="${employee.photo}" alt="Profile picture of ${employee.name}">
-      <button id="btn-remove-img" class="btn-remove-img"">×</button>
+  // Header du profil
+  content.innerHTML += `
+    <div style="text-align:center;">
+      <img src="${employe.photo}" class="profile-avatar">
+      <div class="profile-name">${employe.name}</div>
+      <div class="profile-role">${employe.role}</div>
     </div>
+    <div class="info-item">
+      <h4>Email</h4>
+      <p>${employe.email}</p>
+    </div>
+    <div class="info-item">
+      <h4>Téléphone</h4>
+      <p>${employe.phone}</p>
+    </div>
+    <div class="info-item">
+      <h4>Localisation</h4>
+      <p>${employe.location ? employe.location : "Non assigne"}</p>
+    </div>
+    <div class="experiences-display">
+      <h4>Experiences</h4>
   `;
-}
 
-function checkUnsigneIsVide() {
-  const list = document.getElementById("unassigned-list");
-  // <p class="empty-message">Tous assignes</p>
-  if (list.childElementCount === 0) {
-    list.innerHTML += `<p class="empty-message">Tous assignes</p>`;
-  }
-}
-remplireUnsigneAuto();
-checkUnsigneIsVide();
-
-function supprimerEmployeFromUnsigne(employeeId) {
-  const list = document.getElementById("unassigned-list");
-  for (let i = 0; i < list.childElementCount; i++) {
-    if (list.children[i].getAttribute("data-employee-id") === employeeId) {
-      list.children[i].remove();
-      break;
+  // Boucle pour les expériences
+  if (employe.exp && employe.exp.length > 0) {
+    for (let i = 0; i < employe.exp.length; i++) {
+      const experience = employe.exp[i];
+      content.innerHTML += `
+        <div class="exp-item">
+          <h5>company : ${experience.company}</h5>
+          <p>position : ${experience.position}</p>
+          <p>Start Date : ${experience.startDate}</p>
+          <p>End Date : ${experience.endDate}</p>
+        </div>
+      `;
     }
+  } else {
+    content.innerHTML += `<p>Aucune experience</p>`;
   }
-  unassignedCountMines();
-  checkUnsigneIsVide();
+
+  // Fermer la div experiences-display
+  content.innerHTML += `</div>`;
 }
 
-function addEmployeInRooms(employeeId, roomsId) {
-  const indixEmployeSelected = searchEmploye(employeeId);
-  employees[indixEmployeSelected].location = roomsId;
-  document.getElementById(`employees-${roomsId}`).innerHTML +=
-    createEmployeeImgCard(employees[indixEmployeSelected]);
-  supprimerEmployeFromUnsigne(employeeId);
-}
-
-// page details
-document
-  .getElementById("unassigned-list")
-  .addEventListener("click", (event) => {
+// 2) page details (click Employe non Assigne)
+document.getElementById("unassigned-list").addEventListener("click", (event) => {
     const employe = event.target.closest(".employee-card");
     if (employe) {
       showProfile(employees[searchEmploye(employe.dataset.employeeId)]);
       openProfileModal();
     }
-  });
+});
 
-// click in person to assign to room logic
-// document.getElementById("selector-list").addEventListener("click", (event) => {
-//   // <div class="employee-card" data-employee-id="${employee.id}" data-role
-//   const employ = event.target.closest(".employee-card");
-//   // const room = event.target.closest(".btn-assign");
-//   console.log(employ);
-//   // console.log(room);
-
-//   // if (employ) {
-//   //   addEmployeInRooms(employ.dataset.employeeId);
-//   //   // document.getElementById("employees-conference").innerHTML += createEmployeeImgCard(employees[employees.length - 1]);
-//   //   // console.log(employ.dataset.employeeId);
-//   //   closeSelectorModal();
-//   // }
-// });
-
+// affiche only role allowed inside #selector-list
 function openZoneSelector(roomsId) {
   // document.getElementById("selector-modal").classList.add("active");
   const list = document.getElementById("selector-list");
@@ -682,27 +580,29 @@ function openZoneSelector(roomsId) {
   // }
 }
 
+// + Employe Non Assigne
+function unassignedCountPlus() {
+  const unassignedCountTxt = document.getElementById("unassigned-count");
+  unassignedCountTxt.textContent = Number(unassignedCountTxt.textContent) + 1;
+}
+
+// remove Inside Room
 function removeFromZone(employeeCard) {
   const indexEmploye = searchEmploye(employeeCard.dataset.employeeId);
   employees[indexEmploye].location = null;
   employeeCard.remove();
   renderUnassigned(employees[indexEmploye]);
   unassignedCountPlus();
-  
 }
 
-// click button Assigner
+// 3) (click button Assigner)  + (click X remove employe Inside Room)
 document.querySelector(".rooms").addEventListener("click", (event) => {
   const assignBtn = event.target.closest(".btn-assign");
   if (assignBtn) {
     const roomSelected = assignBtn.dataset.rooms;
     console.log(roomSelected);
-    const employesInRooms = document.getElementById(
-      `employees-${roomSelected}`
-    );
-    if (
-      employesInRooms.childElementCount === roomsConfig[roomSelected].capacity
-    ) {
+    const employesInRooms = document.getElementById(`employees-${roomSelected}`);
+    if (employesInRooms.childElementCount === roomsConfig[roomSelected].capacity) {
       alert("La salle a atteint sa capacite maximale");
     } else {
       document.getElementById("selector-modal").classList.add("active");
@@ -710,6 +610,7 @@ document.querySelector(".rooms").addEventListener("click", (event) => {
     }
   }
 
+  // remove Inside Room
   const removeBtn = event.target.closest(".btn-remove-img");
 
   if (removeBtn) {
@@ -727,10 +628,73 @@ document.querySelector(".rooms").addEventListener("click", (event) => {
   // }
 });
 
-// /* utility */
-function uid() {
-  return "id-" + Math.random().toString(36).slice(2, 9);
+function searchEmployeFromUnassigned(employeeId) {
+  for (let i = 0; i < employees.length; i++) {
+    if (employees[i].id === employeeId) {
+      console.log(employees[i]);
+      return i;
+    }
+  }
+  return -1;
 }
+
+// <button id="btn-remove-img" class="btn-remove-img" onclick="removeFromZone('${employee.id}')">×</button>
+
+// delete from unssigned
+function supprimerEmployeFromUnsigne(employeeId) {
+  const list = document.getElementById("unassigned-list");
+  for (let i = 0; i < list.childElementCount; i++) {
+    if (list.children[i].getAttribute("data-employee-id") === employeeId) {
+      list.children[i].remove();
+      break;
+    }
+  }
+  unassignedCountMines();
+  // checkUnsigneIsVide();
+}
+
+function searchEmploye(employeeId) {
+  for (let i = 0; i < employees.length; i++) {
+    if (employees[i].id === employeeId) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+// Fonction pour créer une carte image
+function createEmployeeImgCard(employee) {
+  return `
+    <div class="employee-img-card" data-employee-id="${employee.id}">
+      <img class="employee-img" src="${employee.photo}" alt="Profile picture of ${employee.name}">
+      <button id="btn-remove-img" class="btn-remove-img"">×</button>
+    </div>
+  `;
+}
+
+// 4) ajouter employe inside room and delete from unssigned
+function addEmployeInRooms(employeeId, roomsId) {
+  const indixEmployeSelected = searchEmploye(employeeId);
+  employees[indixEmployeSelected].location = roomsId;
+  document.getElementById(`employees-${roomsId}`).innerHTML += createEmployeeImgCard(employees[indixEmployeSelected]);
+  supprimerEmployeFromUnsigne(employeeId);
+}
+
+// click in person to assign to room logic
+// document.getElementById("selector-list").addEventListener("click", (event) => {
+//   // <div class="employee-card" data-employee-id="${employee.id}" data-role
+//   const employ = event.target.closest(".employee-card");
+//   // const room = event.target.closest(".btn-assign");
+//   console.log(employ);
+//   // console.log(room);
+
+//   // if (employ) {
+//   //   addEmployeInRooms(employ.dataset.employeeId);
+//   //   // document.getElementById("employees-conference").innerHTML += createEmployeeImgCard(employees[employees.length - 1]);
+//   //   // console.log(employ.dataset.employeeId);
+//   //   closeSelectorModal();
+//   // }
+// });
 
 function createEmploye(urlImage) {
   const img = document.createElement("img");
@@ -774,6 +738,11 @@ function previewPhoto() {
   preview.innerHTML = `<img src="${url}" alt="photo employe">`;
 }
 
+function unassignedCountMines() {
+  const unassignedCountTxt = document.getElementById("unassigned-count");
+  unassignedCountTxt.textContent = Number(unassignedCountTxt.textContent) - 1;
+}
+
 function remplireUnsigneAuto() {
   for (let i = 0; i < employees.length; i++) {
     if (!employees[i].location) {
@@ -783,12 +752,13 @@ function remplireUnsigneAuto() {
   }
 }
 
-function unassignedCountPlus() {
-  const unassignedCountTxt = document.getElementById("unassigned-count");
-  unassignedCountTxt.textContent = Number(unassignedCountTxt.textContent) + 1;
-}
+// function checkUnsigneIsVide() {
+//   const list = document.getElementById("unassigned-list");
+//   // <p class="empty-message">Tous assignes</p>
+//   if (list.childElementCount === 0) {
+//     list.innerHTML += `<p class="empty-message">Tous assignes</p>`;
+//   }
+// }
 
-function unassignedCountMines() {
-  const unassignedCountTxt = document.getElementById("unassigned-count");
-  unassignedCountTxt.textContent = Number(unassignedCountTxt.textContent) - 1;
-}
+remplireUnsigneAuto();
+// checkUnsigneIsVide();
