@@ -45,135 +45,135 @@ const employees = [
     ],
     location: null,
   },
-  {
-    id: uid(),
-    name: "Fatima Cleaning",
-    role: "cleaning",
-    photo: "https://i.pravatar.cc/150?img=8",
-    email: "fatima@example.com",
-    phone: "0660999000",
-    exp: [
-      {
-        company: "CleanPro",
-        position: "Cleaner",
-        startDate: "2020-02-01",
-        endDate: "2021-07-23",
-      },
-    ],
-    location: null,
-  },
-  {
-    id: uid(),
-    name: "Ali Employee",
-    role: "other",
-    photo: "https://i.pravatar.cc/150?img=20",
-    email: "ali@example.com",
-    phone: "0660111222",
-    exp: [
-      {
-        company: "TechSoft",
-        position: "Developer",
-        startDate: "2019-01-01",
-        endDate: "2021-01-01",
-      },
-    ],
-    location: null,
-  },
-  {
-    id: uid(),
-    name: "Guest Person",
-    role: "other",
-    photo: "https://i.pravatar.cc/150?img=25",
-    email: "guest@example.com",
-    phone: "0660333444",
-    exp: [],
-    location: null,
-  },
-  {
-    id: uid(),
-    name: "Younes Manager",
-    role: "manager",
-    photo: "https://i.pravatar.cc/150?img=12",
-    email: "younes@example.com",
-    phone: "0660111222",
-    exp: [
-      {
-        company: "WorkSphere",
-        position: "Lead Dev",
-        startDate: "2019-03-01",
-        endDate: "2022-03-01",
-      },
-    ],
-    location: null,
-  },
-  {
-    id: uid(),
-    name: "Lina Reception",
-    role: "reception",
-    photo: "https://i.pravatar.cc/150?img=3",
-    email: "lina@example.com",
-    phone: "0660555666",
-    exp: [
-      {
-        company: "Hotel Plaza",
-        position: "Receptionist",
-        startDate: "2020-04-01",
-        endDate: "2022-01-01",
-      },
-    ],
-    location: null,
-  },
-  {
-    id: uid(),
-    name: "Tech IT",
-    role: "it",
-    photo: "https://i.pravatar.cc/150?img=7",
-    email: "tech@example.com",
-    phone: "0660777888",
-    exp: [
-      {
-        company: "DataCenter",
-        position: "Network Admin",
-        startDate: "2018-01-01",
-        endDate: "2022-01-01",
-      },
-    ],
-    location: null,
-  },
-  {
-    id: uid(),
-    name: "Guard Security",
-    role: "security",
-    photo: "https://i.pravatar.cc/150?img=18",
-    email: "guard@example.com",
-    phone: "0660999000",
-    exp: [
-      {
-        company: "SafeGuard",
-        position: "Security Agent",
-        startDate: "2017-01-01",
-        endDate: "2022-01-01",
-      },
-    ],
-    location: null,
-  },
-  {
-    id: uid(),
-    name: "Regular Employee",
-    role: "other",
-    photo: "https://i.pravatar.cc/150?img=30",
-    email: "employee@example.com",
-    phone: "0660111333",
-    exp: [
-      {
-        company: "BusinessCorp",
-        position: "Analyst",
-        startDate: "2019-01-01",
-        endDate: "2021-01-01",
-      },
-    ],
-    location: null,
-  },
+  // {
+  //   id: uid(),
+  //   name: "Fatima Cleaning",
+  //   role: "cleaning",
+  //   photo: "https://i.pravatar.cc/150?img=8",
+  //   email: "fatima@example.com",
+  //   phone: "0660999000",
+  //   exp: [
+  //     {
+  //       company: "CleanPro",
+  //       position: "Cleaner",
+  //       startDate: "2020-02-01",
+  //       endDate: "2021-07-23",
+  //     },
+  //   ],
+  //   location: null,
+  // },
+  // {
+  //   id: uid(),
+  //   name: "Ali Employee",
+  //   role: "other",
+  //   photo: "https://i.pravatar.cc/150?img=20",
+  //   email: "ali@example.com",
+  //   phone: "0660111222",
+  //   exp: [
+  //     {
+  //       company: "TechSoft",
+  //       position: "Developer",
+  //       startDate: "2019-01-01",
+  //       endDate: "2021-01-01",
+  //     },
+  //   ],
+  //   location: null,
+  // },
+  // {
+  //   id: uid(),
+  //   name: "Guest Person",
+  //   role: "other",
+  //   photo: "https://i.pravatar.cc/150?img=25",
+  //   email: "guest@example.com",
+  //   phone: "0660333444",
+  //   exp: [],
+  //   location: null,
+  // },
+  // {
+  //   id: uid(),
+  //   name: "Younes Manager",
+  //   role: "manager",
+  //   photo: "https://i.pravatar.cc/150?img=12",
+  //   email: "younes@example.com",
+  //   phone: "0660111222",
+  //   exp: [
+  //     {
+  //       company: "WorkSphere",
+  //       position: "Lead Dev",
+  //       startDate: "2019-03-01",
+  //       endDate: "2022-03-01",
+  //     },
+  //   ],
+  //   location: null,
+  // },
+  // {
+  //   id: uid(),
+  //   name: "Lina Reception",
+  //   role: "reception",
+  //   photo: "https://i.pravatar.cc/150?img=3",
+  //   email: "lina@example.com",
+  //   phone: "0660555666",
+  //   exp: [
+  //     {
+  //       company: "Hotel Plaza",
+  //       position: "Receptionist",
+  //       startDate: "2020-04-01",
+  //       endDate: "2022-01-01",
+  //     },
+  //   ],
+  //   location: null,
+  // },
+  // {
+  //   id: uid(),
+  //   name: "Tech IT",
+  //   role: "it",
+  //   photo: "https://i.pravatar.cc/150?img=7",
+  //   email: "tech@example.com",
+  //   phone: "0660777888",
+  //   exp: [
+  //     {
+  //       company: "DataCenter",
+  //       position: "Network Admin",
+  //       startDate: "2018-01-01",
+  //       endDate: "2022-01-01",
+  //     },
+  //   ],
+  //   location: null,
+  // },
+  // {
+  //   id: uid(),
+  //   name: "Guard Security",
+  //   role: "security",
+  //   photo: "https://i.pravatar.cc/150?img=18",
+  //   email: "guard@example.com",
+  //   phone: "0660999000",
+  //   exp: [
+  //     {
+  //       company: "SafeGuard",
+  //       position: "Security Agent",
+  //       startDate: "2017-01-01",
+  //       endDate: "2022-01-01",
+  //     },
+  //   ],
+  //   location: null,
+  // },
+  // {
+  //   id: uid(),
+  //   name: "Regular Employee",
+  //   role: "other",
+  //   photo: "https://i.pravatar.cc/150?img=30",
+  //   email: "employee@example.com",
+  //   phone: "0660111333",
+  //   exp: [
+  //     {
+  //       company: "BusinessCorp",
+  //       position: "Analyst",
+  //       startDate: "2019-01-01",
+  //       endDate: "2021-01-01",
+  //     },
+  //   ],
+  //   location: null,
+  // },
   {
     id: uid(),
     name: "Doc Manager",
@@ -278,7 +278,6 @@ document
     closeSelectorModal();
   });
 
-
 function openProfileModal() {
   document.getElementById("profile-modal").classList.add("active");
 }
@@ -287,9 +286,11 @@ function closeProfileModal() {
   document.getElementById("profile-modal").classList.remove("active");
 }
 
-document.getElementById("btn-close-profile-modale").addEventListener("click", () => {
+document
+  .getElementById("btn-close-profile-modale")
+  .addEventListener("click", () => {
     closeProfileModal();
-});
+  });
 
 // Remove experience field
 function removeExperience(expId) {
@@ -613,13 +614,15 @@ function addEmployeInRooms(employeeId, roomsId) {
 }
 
 // page details
-document.getElementById("unassigned-list").addEventListener("click", (event) => {
-  const employe = event.target.closest(".employee-card");
-  if (employe) {
-    showProfile(employees[searchEmploye(employe.dataset.employeeId)]);
-    openProfileModal();
-  }
-});
+document
+  .getElementById("unassigned-list")
+  .addEventListener("click", (event) => {
+    const employe = event.target.closest(".employee-card");
+    if (employe) {
+      showProfile(employees[searchEmploye(employe.dataset.employeeId)]);
+      openProfileModal();
+    }
+  });
 
 // click in person to assign to room logic
 // document.getElementById("selector-list").addEventListener("click", (event) => {
@@ -679,12 +682,13 @@ function openZoneSelector(roomsId) {
   // }
 }
 
-
 function removeFromZone(employeeCard) {
-  const indexEmploye = searchEmploye(employeeCard.dataset.employeeId)
+  const indexEmploye = searchEmploye(employeeCard.dataset.employeeId);
   employees[indexEmploye].location = null;
   employeeCard.remove();
   renderUnassigned(employees[indexEmploye]);
+  unassignedCountPlus();
+  
 }
 
 // click button Assigner
@@ -693,14 +697,17 @@ document.querySelector(".rooms").addEventListener("click", (event) => {
   if (assignBtn) {
     const roomSelected = assignBtn.dataset.rooms;
     console.log(roomSelected);
-    const employesInRooms = document.getElementById(`employees-${roomSelected}`);
-    if (employesInRooms.childElementCount === roomsConfig[roomSelected].capacity) {
+    const employesInRooms = document.getElementById(
+      `employees-${roomSelected}`
+    );
+    if (
+      employesInRooms.childElementCount === roomsConfig[roomSelected].capacity
+    ) {
       alert("La salle a atteint sa capacite maximale");
     } else {
       document.getElementById("selector-modal").classList.add("active");
       openZoneSelector(roomSelected);
     }
-    
   }
 
   const removeBtn = event.target.closest(".btn-remove-img");
