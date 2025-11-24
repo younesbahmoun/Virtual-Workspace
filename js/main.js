@@ -537,6 +537,44 @@ document.getElementById("unassigned-list").addEventListener("click", (event) => 
     }
 });
 
+
+// function filterByRole (role) {
+//   const employe = [];
+//   for (let i = 0; i < employees.length; i++) {
+//     if (employees[i].role === role) {
+//       employe.push(employees[i]);
+//     }
+//   }
+//   return employe;
+// }
+
+
+// function filterByRole (role) {
+//   const employe = [];
+//   for (let i = 0; i < employees.length; i++) {
+//       for (const room of roomsConfig) {
+//         for (let j = 0; roomsConfig[room].allowedRoles.length; j++) {
+//             if (roomsConfig[room].allowedRoles[j] === role) {
+//                 employe.push(room);
+//                 break;
+//             }
+//         }
+//       }
+//        for (let j = 0; j < roomsConfig[roomName].allowedRoles.length; j++) {
+//         if (employees[i].role === roomsConfig[roomName].allowedRoles[j]) {
+//             employe.push(employees[i]);
+//         }
+//       }
+//   }
+//   return employe;
+// }
+// console.log(filterByRole("conference", "cleaning"));
+
+// function test () {
+//     const room = document.getElementById("zone-server");
+//     room.style.background = "rgba(52, 152, 219, 0.15)";
+// }
+
 // affiche only role allowed inside #selector-list
 function openZoneSelector(roomsId) {
   // document.getElementById("selector-modal").classList.add("active");
@@ -590,35 +628,44 @@ function unassignedCountPlus() {
 function removeFromZone(employeeCard) {
   const indexEmploye = searchEmploye(employeeCard.dataset.employeeId);
   employees[indexEmploye].location = null;
-  employeeCard.remove();
   renderUnassigned(employees[indexEmploye]);
   unassignedCountPlus();
+  const roomSelected = employeeCard.parentElement.getAttribute("id").split("-")[1];
+  const countEmployeInRooms = document.getElementById(`badge-${roomSelected}`);
+  countEmployeInRooms.textContent = Number(countEmployeInRooms.textContent) + -1;
+  employeeCard.remove();
 }
 
-// 3) (click button Assigner)  + (click X remove employe Inside Room)
-document.querySelector(".rooms").addEventListener("click", (event) => {
-  const assignBtn = event.target.closest(".btn-assign");
-  if (assignBtn) {
-    const roomSelected = assignBtn.dataset.rooms;
-    console.log(roomSelected);
-    const employesInRooms = document.getElementById(`employees-${roomSelected}`);
-    if (employesInRooms.childElementCount === roomsConfig[roomSelected].capacity) {
-      alert("La salle a atteint sa capacite maximale");
-    } else {
-      document.getElementById("selector-modal").classList.add("active");
-      openZoneSelector(roomSelected);
+  // 3) (click button Assigner)  + (click X remove employe Inside Room)
+  document.querySelector(".rooms").addEventListener("click", (event) => {
+    const assignBtn = event.target.closest(".btn-assign");
+    if (assignBtn) {
+      const roomSelected = assignBtn.dataset.rooms;
+      console.log(roomSelected);
+      const employesInRooms = document.getElementById(`employees-${roomSelected}`);
+      if (employesInRooms.childElementCount === roomsConfig[roomSelected].capacity) {
+        alert("La salle a atteint sa capacite maximale");
+      } else {
+        document.getElementById("selector-modal").classList.add("active");
+        openZoneSelector(roomSelected);
+      }
     }
-  }
 
-  // remove Inside Room
-  const removeBtn = event.target.closest(".btn-remove-img");
+    // remove Inside Room
+    const removeBtn = event.target.closest(".btn-remove-img");
 
-  if (removeBtn) {
-    const employeeCard = removeBtn.closest(".employee-img-card");
-    if (employeeCard) {
-      removeFromZone(employeeCard);
+    if (removeBtn) {
+      const employeeCard = removeBtn.closest(".employee-img-card");
+      if (employeeCard) {
+        const zone = employeeCard.parentElement.getAttribute("id").split("-")[1];
+        if (employeeCard.parentElement.childElementCount === 1 && roomsConfig[zone].required) {
+          // console.log(employeeCard.parentElement.parentElement);
+          employeeCard.parentElement.parentElement.classList.add("empty-required");
+        }
+        removeFromZone(employeeCard);
+        // console.log(employeeCard.parentElement.childElementCount);  error beceuse deleted
+      }
     }
-  }
 
   // if (event.target.classList.contains("btn-remove-img")) {
   //   const employeeCard = event.target.closest(".employee-img-card");
@@ -678,6 +725,10 @@ function addEmployeInRooms(employeeId, roomsId) {
   employees[indixEmployeSelected].location = roomsId;
   document.getElementById(`employees-${roomsId}`).innerHTML += createEmployeeImgCard(employees[indixEmployeSelected]);
   supprimerEmployeFromUnsigne(employeeId);
+  // document.getElementById(`zone-${roomsId}`).style.backgroundColor = "red";
+  document.getElementById(`zone-${roomsId}`).classList.remove("empty-required");
+  const countEmployeInRooms = document.getElementById(`badge-${roomsId}`);
+  countEmployeInRooms.textContent = Number(countEmployeInRooms.textContent) + 1;
 }
 
 // click in person to assign to room logic
@@ -762,3 +813,5 @@ function remplireUnsigneAuto() {
 
 remplireUnsigneAuto();
 // checkUnsigneIsVide();
+
+// document.getElementById("badge-server").textContent = "";

@@ -363,7 +363,7 @@ body {
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
 .zone:hover {
@@ -741,4 +741,41 @@ before
 .btn-remove-img:hover {
     background: #c53030;
     transform: scale(1.1);
+}
+
+/* @media (min-width: 768px) and (max-width: 1023px) { */
+@media (min-width: 300px) and (max-width: 1023px) {
+  /* Styles Mobile Paysage */
+  .sidebar {
+    padding: 1rem;
+  }
+  .unassigned-list {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  /* .modal {
+    width: 100%;
+  } */
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .sidebar {
+  /* width: 27vw; */
+  /* background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem; */
+  /* height: fit-content; */
+  /* height: 99vh; */
+  /* background-color: #2c3e50; */
+  }
+  .rooms {
+  /* width: 73vw;
+  height: 60vw; */
+    /* grid-template-columns: 5fr  1fr 1fr; */
+  /* grid-template-columns: 39.1% 16%; */
+  /* grid-template-columns: 38.7% 17% 22.45% 22.45%; */
+  /* grid-template-rows: 34.5% 65.5%; */
+  /* grid-template-rows: 34.5% 1fr 1fr; */
+  }
 }
