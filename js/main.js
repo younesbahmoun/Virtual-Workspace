@@ -1,15 +1,21 @@
 // import { employees } from "../data/eployees.js";
 // import { roomsConfig } from "../data/rooms.js";
+// /* utility */
+let cmd = 1;
+function uid() {
+  // return "id-" + Math.random().toString(36).slice(2, 9);
+  return "id-" + cmd++;
+}
 const employees = [
   {
-    id: uid(),
-    name: "Sara Manager",
-    role: "manager",
-    photo: "https://i.pravatar.cc/150?img=5",
-    email: "sara@example.com",
-    phone: "0660333444",
-    exp: [],
-    location: null,
+id: uid(),
+name: "Sara Manager",
+role: "manager",
+photo: "https://i.pravatar.cc/150?img=5",
+email: "sara@example.com",
+phone: "0660333444",
+exp: [],
+location: null,
   },
   {
     id: uid(),
@@ -286,14 +292,6 @@ document.getElementById("btn-close-profile-modale").addEventListener("click", ()
     closeProfileModal();
 });
 
-// Remove experience field
-function removeExperience(expId) {
-  const expElement = document.getElementById(expId);
-  if (expElement) {
-    expElement.remove();
-  }
-}
-
 document.getElementById("btn-add-exp").addEventListener("click", () => {
   addExperienceField();
   // document.getElementById("experiencesContainer").appendChild(document.querySelector(".experience-item").cloneNode(true));
@@ -312,12 +310,12 @@ function addExperienceField() {
   expDiv.innerHTML = `
         <button type="button" class="btn-remove-exp" onclick="this.parentElement.remove()">×</button>
         <div class="experience-row">
-            <input type="text" placeholder="Entreprise *" class="exp-company" required>
-            <input type="text" placeholder="Poste *" class="exp-position" required>
+            <input type="text" placeholder="Entreprise :" class="exp-company" required>
+            <input type="text" placeholder="Poste :" class="exp-position" required>
         </div>
         <div class="experience-dates">
-            <input type="date" class="exp-date-debut" placeholder="Date début *" required>
-            <input type="date" class="exp-date-fin" placeholder="Date fin *" required>
+            <input type="date" class="exp-date-debut" placeholder="Date début :" required>
+            <input type="date" class="exp-date-fin" placeholder="Date fin :" required>
         </div>
     `;
 
@@ -327,6 +325,8 @@ function addExperienceField() {
 // validate form
 function validateExperiences() {
   const expItems = document.querySelectorAll(".experience-item");
+  const nameRegexCompany = /^[A-Za-z ]{4,40}$/;
+  const nameRegex = /^[A-Za-z ]{2,40}$/;
 
   for (let exp of expItems) {
     const company = exp.querySelector(".exp-company").value.trim();
@@ -334,18 +334,16 @@ function validateExperiences() {
     const startDate = exp.querySelector(".exp-date-debut").value;
     const endDate = exp.querySelector(".exp-date-fin").value;
 
-    // Verification champs vides
-    if (
-      company === "" ||
-      position === "" ||
-      startDate === "" ||
-      endDate === ""
-    ) {
-      alert("Veuillez remplir tous les champs des experiences.");
+    if (!nameRegexCompany.test(company)) {
+      alert("Le nom de lentreprise doit contenir uniquement des lettres et des espaces (4 a 40 caracteres).");
       return false;
     }
 
-    // Verification dates
+    if (!nameRegex.test(position)) {
+      alert("Le poste doit contenir uniquement des lettres et des espaces (2 a 40 caractères).");
+      return false;
+    }
+
     if (new Date(startDate) > new Date(endDate)) {
       alert("La date de debut doit etre avant la date de fin.");
       return false;
@@ -361,11 +359,11 @@ function validateForm() {
   const phone = document.getElementById("emp-phone").value.trim();
   const photo = document.getElementById("emp-photo").value.trim();
 
-  const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,40}$/;
-  const emailRegex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
+  const nameRegex = /^[A-Za-z ]{2,40}$/;
+  const emailRegex = /^[A-Za-z0-9._]+@[a-z]+\.[a-z]{2,}$/;
   const phoneRegex = /^(05|06|07)\d{8}$/;
   // const photoRegex = /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp)$/i;
-  const photoRegex = /^http/i;
+  // const photoRegex = /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp)$/i;
 
   if (!nameRegex.test(name)) {
     alert("Nom invalide !");
@@ -382,10 +380,10 @@ function validateForm() {
     return false;
   }
 
-  if (photo !== "" && !photoRegex.test(photo)) {
-    alert("Lien photo invalide !");
-    return false;
-  }
+  // if (photo !== "" && !photoRegex.test(photo)) {
+  //   alert("Lien photo invalide !");
+  //   return false;
+  // }
 
   if (!validateExperiences()) {
     return false;
@@ -394,16 +392,10 @@ function validateForm() {
   return true;
 }
 
-// /* utility */
-function uid() {
-  return "id-" + Math.random().toString(36).slice(2, 9);
-}
-
 // add experience
 function experiencesEmploye() {
   const experiencesContainer = document.getElementById("experiences-container");
   if (experiencesContainer.childElementCount === 0) {
-    console.log("yes");
     return null;
   }
   const experienceItems = document.querySelectorAll(".experience-item");
@@ -412,14 +404,11 @@ function experiencesEmploye() {
   for (let i = 0; i < experienceItems.length; i++) {
     const item = experienceItems[i];
 
-    // Get inputs from the CURRENT experience item
     const company = item.querySelector(".exp-company").value;
     const position = item.querySelector(".exp-position").value;
     const startDate = item.querySelector(".exp-date-debut").value;
     const endtDate = item.querySelector(".exp-date-fin").value;
 
-    // Only add if at least one field has data
-    // if (company || position || duration) {
     const exp = {
       post: position,
       company: company,
@@ -427,7 +416,6 @@ function experiencesEmploye() {
       endDate: endtDate,
     };
     experienceEmploye.push(exp);
-    // }
   }
 
   return experienceEmploye;
@@ -458,7 +446,7 @@ function renderUnassigned(employe) {
 document.getElementById("add-form").addEventListener("submit", (event) => {
   event.preventDefault();
 
-  // if (!validateForm()) return;
+  if (!validateForm()) return;
 
   const employe = {
     id: uid(),
@@ -537,44 +525,6 @@ document.getElementById("unassigned-list").addEventListener("click", (event) => 
     }
 });
 
-
-// function filterByRole (role) {
-//   const employe = [];
-//   for (let i = 0; i < employees.length; i++) {
-//     if (employees[i].role === role) {
-//       employe.push(employees[i]);
-//     }
-//   }
-//   return employe;
-// }
-
-
-// function filterByRole (role) {
-//   const employe = [];
-//   for (let i = 0; i < employees.length; i++) {
-//       for (const room of roomsConfig) {
-//         for (let j = 0; roomsConfig[room].allowedRoles.length; j++) {
-//             if (roomsConfig[room].allowedRoles[j] === role) {
-//                 employe.push(room);
-//                 break;
-//             }
-//         }
-//       }
-//        for (let j = 0; j < roomsConfig[roomName].allowedRoles.length; j++) {
-//         if (employees[i].role === roomsConfig[roomName].allowedRoles[j]) {
-//             employe.push(employees[i]);
-//         }
-//       }
-//   }
-//   return employe;
-// }
-// console.log(filterByRole("conference", "cleaning"));
-
-// function test () {
-//     const room = document.getElementById("zone-server");
-//     room.style.background = "rgba(52, 152, 219, 0.15)";
-// }
-
 // affiche only role allowed inside #selector-list
 function openZoneSelector(roomsId) {
   // document.getElementById("selector-modal").classList.add("active");
@@ -604,7 +554,6 @@ function openZoneSelector(roomsId) {
   };
   // });
 
-  // Clean up previous event listeners
   // list.removeEventListener("click", handleEmployeeSelection);
   // list.addEventListener("click", handleEmployeeSelection);
 
@@ -685,8 +634,6 @@ function searchEmployeFromUnassigned(employeeId) {
   return -1;
 }
 
-// <button id="btn-remove-img" class="btn-remove-img" onclick="removeFromZone('${employee.id}')">×</button>
-
 // delete from unssigned
 function supprimerEmployeFromUnsigne(employeeId) {
   const list = document.getElementById("unassigned-list");
@@ -731,51 +678,10 @@ function addEmployeInRooms(employeeId, roomsId) {
   countEmployeInRooms.textContent = Number(countEmployeInRooms.textContent) + 1;
 }
 
-// click in person to assign to room logic
-// document.getElementById("selector-list").addEventListener("click", (event) => {
-//   // <div class="employee-card" data-employee-id="${employee.id}" data-role
-//   const employ = event.target.closest(".employee-card");
-//   // const room = event.target.closest(".btn-assign");
-//   console.log(employ);
-//   // console.log(room);
-
-//   // if (employ) {
-//   //   addEmployeInRooms(employ.dataset.employeeId);
-//   //   // document.getElementById("employees-conference").innerHTML += createEmployeeImgCard(employees[employees.length - 1]);
-//   //   // console.log(employ.dataset.employeeId);
-//   //   closeSelectorModal();
-//   // }
-// });
-
 function createEmploye(urlImage) {
   const img = document.createElement("img");
   img.setAttribute("src", `${urlImage}`);
 }
-
-// let dat = "1999-08-15";
-// console.log(Number(dat.split("-")[0]) === 1999);
-
-// const now = new Date();
-
-// const year = now.getFullYear();
-// let month = now.getMont();
-// let day = now.getDate();
-
-// console.log(typeof year);
-// console.log(month);
-// console.log(day);
-
-// Photo preview functionality
-// function previewPhoto() {
-//     const photoUrl = document.getElementById("emp-photo").value;
-//     const preview = document.getElementById("photo-preview");
-
-//     if (photoUrl) {
-//         preview.innerHTML = `<img src="${photoUrl}" alt="Photo preview">`;
-//     } else {
-//         preview.innerHTML = '';
-//     }
-// }
 
 function previewPhoto() {
   const url = document.getElementById("emp-photo").value.trim();

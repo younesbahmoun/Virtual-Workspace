@@ -20,23 +20,11 @@
             <div class="unassigned-list" id="unassigned-list">
                 <!-- <p class="empty-message">Tous assignes</p> -->
                 <!-- cardperson -->
-                <!-- <div class="employee-card" data-employe-id="1111" data-department="IT">
-                    <div class="employee-card-content">
-                        <img src="https://i.pravatar.cc/150?img=12" class="employee-avatar"
-                            alt="Profile picture of younes bahmoun">
-                        <div class="employee-info">
-                            <h3>younes bahmoun</h3>
-                            <p>it</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </aside>
 
         <main class="rooms">
 
-
-            <!-- <div class="zone zone-conference" id="zone-conference" onclick="openZoneSelector('conference')"> -->
             <div class="zone zone-conference" id="zone-conference">
                 <div class="zone-header">
                     <h3>Salle de conférence</h3>
@@ -54,21 +42,6 @@
                         <button class="btn-remove-img">×</button>
                     </div> -->
 
-                    <!-- <div class="zone-employee">
-                        <div class="zone-employee-avatar"><img src="https://i.pravatar.cc/150?img=12" alt=""></div>
-                        <div class="zone-employee-info">
-                            <h4>younes bahmoun</h4>
-                        </div><button class="btn-remove"
-                            onclick="event.stopPropagation(); removeFromZone(1763481690850)">×</button>
-                    </div> -->
-                    <!-- <div>
-                        <img class="imgg" src="https://i.pravatar.cc/150?img=12" alt="">
-
-                    </div> -->
-                    <!-- <img class="imgg" src="https://i.pravatar.cc/150?img=5" alt="">
-                    <img class="imgg" src="https://i.pravatar.cc/150?img=8" alt="">
-                    <img class="imgg" src="https://i.pravatar.cc/150?img=10" alt=""> -->
-
                 </div>
                 <button class="btn-assign" data-rooms="conference">Assigner</button>
             </div>
@@ -83,31 +56,26 @@
                     Assigner</button>
             </div>
 
-            <!-- <div class="zone zone-server empty-required" id="zone-server" onclick="openZoneSelector('server')"> -->
             <div class="zone zone-server empty-required" id="zone-server">
                 <div class="zone-header">
                     <h3>Salle serveurs</h3>
                     <span class="capacity-badge"><span id="badge-server">0</span>/3</span>
                 </div>
                 <div class="zone-employees" id="employees-server"></div>
-                <!-- <button class="btn-assign" data-rooms="server" onclick="event.stopPropagation(); openZoneSelector('server')"> -->
                 <button class="btn-assign" data-rooms="server">
                     Assigner</button>
             </div>
 
-            <!-- <div class="zone zone-security empty-required" id="zone-security" onclick="openZoneSelector('security')"> -->
             <div class="zone zone-security empty-required" id="zone-security">
                 <div class="zone-header">
                     <h3>Salle securite</h3>
                     <span class="capacity-badge"><span id="badge-security">0</span>/2</span>
                 </div>
                 <div class="zone-employees" id="employees-security"></div>
-                <!-- <button class="btn-assign" data-rooms="security" onclick="event.stopPropagation(); openZoneSelector('security')"> -->
                 <button class="btn-assign" data-rooms="security">
                     Assigner</button>
             </div>
 
-            <!-- <div class="zone zone-staff" id="zone-staff" onclick="openZoneSelector('staff')"> -->
             <div class="zone zone-staff" id="zone-staff">
                 <div class="zone-header">
                     <h3>Salle du personnel</h3>
@@ -116,26 +84,23 @@
                 <div class="zone-employees" id="employees-staff">
 
                 </div>
-                <!-- <button class="btn-assign" data-rooms="staff" onclick="event.stopPropagation(); openZoneSelector('staff')"> -->
                 <button class="btn-assign" data-rooms="staff">
                     Assigner</button>
             </div>
 
-            <!-- <div class="zone zone-archives empty-required" id="zone-archives" onclick="openZoneSelector('archives')"> -->
             <div class="zone zone-archives empty-required" id="zone-archives">
                 <div class="zone-header">
                     <h3>Salle darchives</h3>
                     <span class="capacity-badge"><span id="badge-archives">0</span>/2</span>
                 </div>
                 <div class="zone-employees" id="employees-archives"></div>
-                <!-- <button class="btn-assign" data-rooms="archives" onclick="event.stopPropagation(); openZoneSelector('archives')"> -->
                 <button class="btn-assign" data-rooms="archives">
                     Assigner</button>
             </div>
         </main>
     </div>
 
-   
+
 
     <div class="modal" id="add-modal">
     <div class="modal-content">
@@ -243,19 +208,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="modal" id="profile-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Profil</h3>
-                <button class="btn-close" onclick="closeProfileModal()">&times;</button>
-            </div>
-            <p class="empty-message">Tous assignés</p>
-            <div class="modal-body" id="profileContent">
-
-            </div>
-        </div>
-    </div> -->
 
     <div class="modal" id="selector-modal">
         <div class="modal-content">
